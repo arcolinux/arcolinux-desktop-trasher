@@ -442,8 +442,8 @@ def make_backups():
     permissions(destination)
 
 def remove_content_folders():
-    print("NOT removing .config")
-    #subprocess.Popen(["rm", "-rf", home + "/.config/"], shell=False, stderr=None)
+    print("removing .config")
+    subprocess.Popen(["rm", "-rf", home + "/.config/"], shell=False, stderr=None)
     print("NOT removing .local")
     #subprocess.Popen(["rm", "-rf", home + "/.local/share/"], shell=False, stderr=None)
 
