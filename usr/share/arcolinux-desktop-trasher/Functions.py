@@ -255,18 +255,11 @@ plasma = [
     "arcolinux-plasma-kservices-git",
     "cryfs",
     "discover",
-    "dolphin",
-    "dolphin-plugins",
     "encfs",
     "gocryptfs",
-    "gwenview",
     "kate",
     "kde-gtk-config",
-    "kdeconnect",
-    "kdenetwork-filesharing",
-    "ktorrent",
     "ocs-url",
-    "okular",
     "packagekit-qt5",
     "partitionmanager",
     "sddm-kcm",
@@ -289,6 +282,14 @@ plasma = [
     "kde-utilities-meta",  
     "arcolinux-arc-kde",
     "plasma",
+    "kate",
+    "gwenview",
+    "okular",
+    "dolphin-plugins",
+    "dolphin",
+    "ktorrent",
+    "kdeconnect",
+    "kdenetwork-filesharing",    
 ]
 qtile = [
     "arcolinux-qtile-git",
@@ -398,7 +399,7 @@ def remove_desktop(self,desktop):
     
     for i in range(len(commands)):
         print("------------------------------------------------------------")
-        print("removing commands array -Rdd")
+        print("removing commands array -Rs")
         print("------------------------------------------------------------")
         subprocess.call(["sudo", "pacman", "-Rs",
             commands[i],
@@ -411,7 +412,7 @@ def remove_desktop(self,desktop):
     else:
         for i in range(len(remove_less_critical_commands)):
             print("------------------------------------------------------------")
-            print("removing packages less_critical_commands array -Rs")
+            print("removing packages less_critical_commands array -Rdd")
             print("------------------------------------------------------------")
             subprocess.call(["sudo", "pacman", "-Rdd",
 	            remove_less_critical_commands[i],
