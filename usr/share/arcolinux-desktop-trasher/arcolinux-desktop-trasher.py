@@ -31,7 +31,15 @@ class Main(Gtk.Window):
         fn.remove_desktop(self,self.desktopr.get_active_text())
         fn.remove_content_folders()
         fn.copy_skel()
-        fn.MessageBox(self, "Success!", "Desktop Removed")
+        fn.MessageBox(self, "Desktop", "removed")
+    
+    def on_remove_clicked_installed(self, desktop):
+        print("removing {}".format(self.installed_sessions.get_active_text()))
+        fn.make_backups()
+        fn.remove_desktop(self,self.installed_sessions.get_active_text())
+        fn.remove_content_folders()
+        fn.copy_skel()
+        fn.MessageBox(self, "Desktop", "removed")    
     
     def on_reboot_clicked(self, desktop):
         print("Closing down")

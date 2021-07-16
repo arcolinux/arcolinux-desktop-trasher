@@ -73,7 +73,7 @@ def GUI(self, Gtk, GdkPixbuf, fn):
     
     btnRemoveInstalledDesktop = Gtk.Button(label="Trash the desktop")
     btnRemoveInstalledDesktop.set_size_request(220, 0)
-    btnRemoveInstalledDesktop.connect('clicked', self.on_remove_clicked)
+    btnRemoveInstalledDesktop.connect('clicked', self.on_remove_clicked_installed)
    
     hbox10.pack_end(btnRemoveInstalledDesktop, True, False, 0)
     
