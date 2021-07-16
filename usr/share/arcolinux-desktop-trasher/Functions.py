@@ -150,171 +150,37 @@ desktop = [
 ]
 
 awesome = [
-    "arandr",
     "arcolinux-awesome-git",
-    "arcolinux-betterlockscreen-git",
-    "arcolinux-config-all-desktops-git",
-    "arcolinux-conky-collection-git",
-    "arcolinux-dconf-all-desktops-git",
-    "arcolinux-gtk3-sardi-arc-git",
-    "arcolinux-kvantum-theme-arc-git",
-    "arcolinux-local-xfce4-git",
-    "arcolinux-rofi-git",
-    "arcolinux-rofi-themes-git",
-    "arcolinux-root-git",
-    "arcolinux-tweak-tool-git",
-    "arcolinux-volumeicon-git",
-    "arcolinux-xfce-git",
-    "autorandr",
     "awesome",
-    "conky-lua-archers",
-    "dmenu",
-    "feh",
-    "gmrun",
-    "kvantum-qt5",
-    "lxappearance",
-    "picom",
-    "playerctl",
-    "rofi",
-    "rxvt-unicode",
-    "sddm-config-editor-git",
-    "thunar",
-    "thunar-archive-plugin",
-    "thunar-volman",
     "vicious",
-    "volumeicon",
-    "xfce4-screenshooter",
-    "xfce4-terminal",
 ]
 bspwm = [
-    "arandr",
-    "arcolinux-betterlockscreen-git",
     "arcolinux-bspwm-git",
-    "arcolinux-config-all-desktops-git",
-    "arcolinux-conky-collection-git",
-    "arcolinux-dconf-all-desktops-git",
-    "arcolinux-gtk3-sardi-arc-git",
-    "arcolinux-kvantum-theme-arc-git",
-    "arcolinux-local-xfce4-git",
-    "arcolinux-polybar-git",
-    "arcolinux-rofi-git",
-    "arcolinux-rofi-themes-git",
-    "arcolinux-root-git",
-    "arcolinux-tweak-tool-git",
-    "arcolinux-volumeicon-git",
-    "arcolinux-xfce-git",
-    "awesome-terminal-fonts",
     "bspwm",
-    "conky-lua-archers",
-    "dmenu",
-    "feh",
-    "gmrun",
-    "kvantum-qt5",
-    "picom",
-    "playerctl",
-    "polybar",
-    "rofi",
-    "rxvt-unicode",
-    "sddm-config-editor-git",
-    "sutils-git",
-    "sxhkd",
-    "thunar",
-    "thunar-archive-plugin",
-    "thunar-volman",
-    "volumeicon",
-    "xfce4-screenshooter",
-    "xfce4-terminal",
-    "xtitle-git",
 ]
 budgie = [
     "arcolinux-budgie-dconf-git",
     "arcolinux-budgie-git",
-    "arcolinux-config-all-desktops-git",
-    "arcolinux-conky-collection-git",
-    "arcolinux-gtk3-sardi-arc-git",
     "arcolinux-guake-autostart-git",
-    "arcolinux-kvantum-theme-arc-git",
-    "arcolinux-root-git",
-    "arcolinux-tweak-tool-git",
     "budgie-desktop",
-    "conky-lua-archers",
-    "dconf-editor",
-    "gnome",
-    "guake",
-    "kvantum-qt5",
-    "sddm-config-editor-git",
-    "ttf-hack",
 ]
 cinnamon = [
     "arcolinux-cinnamon-dconf-git",
     "arcolinux-cinnamon-git",
-    "arcolinux-config-all-desktops-git",
-    "arcolinux-conky-collection-git",
-    "arcolinux-gtk3-surfn-arc-git",
-    "arcolinux-kvantum-theme-arc-git",
-    "arcolinux-root-git",
-    "arcolinux-tweak-tool-git",
-    "arcolinux-xfce-git",
-    "conky-lua-archers",
     "cinnamon",
     "cinnamon-translations",
-    "gnome-screenshot",
-    "gnome-system-monitor",
-    "gnome-terminal",
-    "iso-flag-png",
-    "kvantum-qt5",
     "mintlocale",
     "nemo-fileroller",
-    "sddm-config-editor-git",
-    "xfce4-terminal",
 ]
 cwm = [
-    "arandr",
-    "arcolinux-betterlockscreen-git",
-    "arcolinux-config-all-desktops-git",
-    "arcolinux-conky-collection-git",
     "arcolinux-cwm-git",
-    "arcolinux-dconf-all-desktops-git",
-    "arcolinux-gtk3-sardi-arc-git",
-    "arcolinux-kvantum-theme-arc-git",
-    "arcolinux-local-xfce4-git",
-    "arcolinux-polybar-git",
-    "arcolinux-root-git",
-    "arcolinux-tweak-tool-git",
-    "arcolinux-volumeicon-git",
-    "arcolinux-xfce-git",
-    "autorandr",
-    "conky-lua-archers",
     "cwm",
-    "dmenu",
-    "feh",
-    "gmrun",
-    "kvantum-qt5",
-    "picom",
-    "playerctl",
-    "polybar",
-    "rxvt-unicode",
-    "sddm-config-editor-git",
-    "sxhkd",
-    "thunar",
-    "thunar-archive-plugin",
-    "thunar-volman",
-    "xfce4-screenshooter",
-    "xfce4-terminal",
 ]
 deepin = [
-    "arandr",
-    "arcolinux-config-all-desktops-git",
-    "arcolinux-conky-collection-git",
     "arcolinux-deepin-dconf-git",
     "arcolinux-deepin-git",
-    "arcolinux-gtk3-sardi-arc-git",
-    "arcolinux-root-git",
-    "arcolinux-tweak-tool-git",
-    "conky-lua-archers",
     "deepin",
     "deepin-extra",
-    "sddm-config-editor-git",
 ]
 dwm = [
     "arandr",
@@ -903,156 +769,6 @@ dummy = [
     "trizen"
 ]
 
-def install_desktop(self,desktop):
-    commands = dummy
-    commands.clear()
-    install_critical_commands = dummy
-    install_critical_commands.clear()
-    install_less_critical_commands = dummy
-    install_less_critical_commands.clear
-    if desktop == "awesome":
-        commands = awesome
-        commands.append("arcolinux-meta-logout")
-        install_critical_commands =[]
-        install_less_critical_commands =[]
-    elif desktop == "bspwm":
-        commands = bspwm
-        commands.append("arcolinux-meta-logout")
-        install_critical_commands =[]
-        install_less_critical_commands =[]
-    elif desktop == "budgie-desktop":
-        commands = budgie
-        install_critical_commands =[]
-        install_less_critical_commands =["arcolinux-meta-logout"]
-    elif desktop == "cinnamon":
-        commands = cinnamon
-        install_critical_commands =["arcolinux-meta-logout"]
-        install_less_critical_commands =[]
-    elif desktop == "cwm":
-        commands = cwm
-        commands.append("arcolinux-meta-logout")
-        install_critical_commands =[]
-        install_less_critical_commands =[]
-    elif desktop == "deepin":
-        commands = deepin
-        install_critical_commands =["kvantum-qt5", "arcolinux-kvantum-theme-arc-git"]
-        install_less_critical_commands =[]
-    elif desktop == "dwm":
-        commands = dwm
-        commands.append("arcolinux-meta-logout")
-        install_critical_commands =[]
-        install_less_critical_commands =[]
-    elif desktop == "fvwm3":
-        commands = fvwm3
-        commands.append("arcolinux-meta-logout")
-        install_critical_commands =[]
-        install_less_critical_commands =[]
-    elif desktop == "gnome":
-        commands = gnome
-        install_critical_commands =[]
-        install_less_critical_commands =["arcolinux-meta-logout"]
-    elif desktop == "herbstluftwm":
-        commands = hlwm
-        commands.append("arcolinux-meta-logout")
-        install_critical_commands =[]
-        install_less_critical_commands =[]
-    elif desktop == "i3":
-        commands = i3
-        commands.append("arcolinux-meta-logout")
-        install_critical_commands =[]
-        install_less_critical_commands =[]
-    elif desktop == "icewm":
-        commands = icewm
-        commands.append("arcolinux-meta-logout")
-        install_critical_commands =[]
-        install_less_critical_commands =[]
-    elif desktop == "jwm":
-        commands = jwm
-        commands.append("arcolinux-meta-logout")
-        install_critical_commands =[]
-        install_less_critical_commands =[]
-    elif desktop == "lxqt":
-        commands = lxqt
-        commands.append("arcolinux-meta-logout")
-        install_critical_commands =[]
-        install_less_critical_commands =[]
-    elif desktop == "mate":
-        commands = mate
-        install_critical_commands =[]
-        install_less_critical_commands =["arcolinux-meta-logout"]
-    elif desktop == "openbox":
-        commands = openbox
-        commands.append("arcolinux-meta-logout")
-        install_critical_commands =[]
-        install_less_critical_commands =[]
-    elif desktop == "plasma":
-        commands = plasma
-        install_critical_commands =["qt5ct",
-            				"arcolinux-arc-themes-git",
-                            "kvantum-qt5",
-                            "arcolinux-kvantum-theme-arc-git",
-                            "sddm-config-editor-git"]
-        install_less_critical_commands =["arcolinux-meta-logout"]
-    elif desktop == "qtile":
-        commands = qtile
-        commands.append("arcolinux-meta-logout")
-        install_critical_commands =[]
-        install_less_critical_commands =[]
-    elif desktop == "spectrwm":
-        commands = spectrwm
-        commands.append("arcolinux-meta-logout")
-        install_critical_commands =[]
-        install_less_critical_commands =[]
-    elif desktop == "ukui":
-        commands = ukui
-        install_critical_commands =[]
-        install_less_critical_commands =["arcolinux-meta-logout"]
-    elif desktop == "xfce":
-        commands = xfce
-        commands.append("arcolinux-meta-logout")
-        install_critical_commands =[]
-        install_less_critical_commands =[]
-    elif desktop == "xmonad":
-        commands = xmonad
-        commands.append("arcolinux-meta-logout")
-        install_critical_commands =[]
-        install_less_critical_commands =[]
-    else:
-        return
-      
-    if not install_less_critical_commands:
-        print("============================================================")
-        print("install_less_critical_commands is empty")
-        print("============================================================")
-    else:
-        print("------------------------------------------------------------")
-        print("removing packages install_less_critical_commands array -Rs")
-        print("------------------------------------------------------------")
-        for i in range(len(install_less_critical_commands)):
-            subprocess.call(["sudo", "pacman", "-Rs",
-                install_less_critical_commands[i],
-                "--noconfirm", "--ask=4"], shell=False)
-
-    if not install_critical_commands:
-        print("============================================================")
-        print("install_critical_commands is empty")
-        print("============================================================")
-    else:
-        print("------------------------------------------------------------")
-        print("removing packages install__critical_commands array -Rdd")
-        print("------------------------------------------------------------")
-        for i in range(len(install_critical_commands)):
-	        subprocess.call(["sudo", "pacman", "-Rdd",
-	                install_critical_commands[i],
-	                "--noconfirm", "--ask=4"], shell=False)
-
-    for i in range(len(commands)):
-        print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        print("installing packages commands array -S")
-        print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        subprocess.call(["sudo", "pacman", "-S",
-                commands[i],
-                "--noconfirm", "--needed", "--ask=4"], shell=False)
 
 def remove_desktop(self,desktop):
     commands = dummy
@@ -1061,10 +777,10 @@ def remove_desktop(self,desktop):
     remove_less_critical_commands.clear
     if desktop == "awesome":
         commands = awesome
-        remove_less_critical_commands =["arcolinux-meta-logout"]
+        remove_less_critical_commands =[]
     elif desktop == "bspwm":
         commands = bspwm
-        remove_less_critical_commands =["arcolinux-meta-logout"]
+        remove_less_critical_commands =[]
     elif desktop == "budgie-desktop":
         commands = budgie
         remove_less_critical_commands =[]
@@ -1073,58 +789,58 @@ def remove_desktop(self,desktop):
         remove_less_critical_commands =[]
     elif desktop == "cwm":
         commands = cwm
-        remove_less_critical_commands =["arcolinux-meta-logout"]
+        remove_less_critical_commands =[]
     elif desktop == "deepin":
         commands = deepin
         remove_less_critical_commands =[]
     elif desktop == "dwm":
         commands = dwm
-        remove_less_critical_commands =["arcolinux-meta-logout"]
+        remove_less_critical_commands =[]
     elif desktop == "fvwm3":
         commands = fvwm3
-        remove_less_critical_commands =["arcolinux-meta-logout"]
+        remove_less_critical_commands =[]
     elif desktop == "gnome":
         commands = gnome
-        remove_less_critical_commands =["arcolinux-meta-logout"]
+        remove_less_critical_commands =[]
     elif desktop == "herbstluftwm":
         commands = hlwm
-        remove_less_critical_commands =["arcolinux-meta-logout"]
+        remove_less_critical_commands =[]
     elif desktop == "i3":
         commands = i3
-        remove_less_critical_commands =["arcolinux-meta-logout"]
+        remove_less_critical_commands =[]
     elif desktop == "icewm":
         commands = icewm
-        remove_less_critical_commands =["arcolinux-meta-logout"]
+        remove_less_critical_commands =[]
     elif desktop == "jwm":
         commands = jwm
-        remove_less_critical_commands =["arcolinux-meta-logout"]
+        remove_less_critical_commands =[]
     elif desktop == "lxqt":
         commands = lxqt
-        remove_less_critical_commands =["arcolinux-meta-logout"]
+        remove_less_critical_commands =[]
     elif desktop == "mate":
         commands = mate
         remove_less_critical_commands =[]
     elif desktop == "openbox":
         commands = openbox
-        remove_less_critical_commands =["arcolinux-meta-logout"]
+        remove_less_critical_commands =[]
     elif desktop == "plasma":
         commands = plasma
         remove_less_critical_commands =[]
     elif desktop == "qtile":
-        remove_less_critical_commands =["arcolinux-meta-logout"]
+        remove_less_critical_commands =[]
         commands = qtile
     elif desktop == "spectrwm":
-        remove_less_critical_commands =["arcolinux-meta-logout"]
+        remove_less_critical_commands =[]
         commands = spectrwm
     elif desktop == "ukui":
         commands = ukui
         remove_less_critical_commands =[]
     elif desktop == "xfce":
         commands = xfce
-        remove_less_critical_commands =["libxfce4ui","arcolinux-meta-logout"]    
+        remove_less_critical_commands =["libxfce4ui",]    
     elif desktop == "xmonad":
         commands = xmonad
-        remove_less_critical_commands =["arcolinux-meta-logout"]
+        remove_less_critical_commands =[]
     else:
         return
     
