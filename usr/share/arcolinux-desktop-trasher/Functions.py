@@ -168,6 +168,7 @@ budgie = [
     "arcolinux-budgie-git",
     "arcolinux-guake-autostart-git",
     "budgie-desktop",
+    "budgie-extras",
 ]
 cinnamon = [
     "arcolinux-cinnamon-dconf-git",
@@ -202,6 +203,7 @@ gnome = [
     "gnome",
     "gnome-extra",
     "guake",
+    "budgie-extras",
 ]
 hlwm = [
     "arcolinux-herbstluftwm-git",
@@ -274,6 +276,8 @@ plasma = [
     "spectacle",
     "systemd-kcm",
     "yakuake",
+    "kde-applications-meta",
+    "ksystemlog",
 ]
 qtile = [
     "arcolinux-qtile-git",
