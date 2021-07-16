@@ -309,6 +309,7 @@ xfce = [
     "xfce4-goodies",
     "xfce4",
     "mugshot",
+    "libxfce4ui"
 ]
 xmonad = [
     "arcolinux-xmonad-polybar-git",

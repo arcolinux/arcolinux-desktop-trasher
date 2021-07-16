@@ -61,7 +61,7 @@ def GUI(self, Gtk, GdkPixbuf, fn):
     #                          DESKTOPS INSTALLED BOX 9
     # ======================================================================
 
-    lbl9 = Gtk.Label(label="Checks the installed desktops: ")
+    lbl9 = Gtk.Label(label="Remove the installed desktop : ")
     lbl9.set_margin_top(30)
     hbox9.pack_start(lbl9, False, False, 0)
     #hbox7.pack_end(self.desktopr, False, False, 0)
@@ -102,16 +102,16 @@ def GUI(self, Gtk, GdkPixbuf, fn):
     
     lbl11 = Gtk.Label(label="Use the ArcoLinux Tweak Tool to restore a desktop - backups have been created")
     lbl11.set_margin_top(30)
-    hbox11.pack_start(lbl11, False, False, 0)
+    hbox11.pack_start(lbl11, True, False, 0)
     # ======================================================================
     #                   PACK TO WINDOW
     # ======================================================================
 
     self.vbox.pack_start(hbox4, False, False, 20)  # LOGO
     self.vbox.pack_start(hbox3, False, False, 20)  # warning text
-    self.vbox.pack_start(hbox7, False, False, 7)  # Remove desktops
-    self.vbox.pack_start(hbox8, False, False, 5)  # Remove button
     self.vbox.pack_start(hbox9, False, False, 5)  # Desktops installed
-    self.vbox.pack_start(hbox10, False, False, 5)  # Remove installed desktops
+    self.vbox.pack_start(hbox10, True, False, 5)  # Remove installed desktops
+    self.vbox.pack_start(hbox7, False, False, 30)  # Remove desktops
+    self.vbox.pack_start(hbox8, True, False, 5)  # Remove button
     self.vbox.pack_end(hbox11, False, False, 5)  # Use the ATT
     self.vbox.pack_end(hbox2, False, False, 7)  # Buttons
