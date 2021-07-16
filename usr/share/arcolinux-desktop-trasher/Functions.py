@@ -1154,13 +1154,13 @@ def make_backups():
     now = datetime.datetime.now()
     time = now.strftime("%Y-%m-%d-%H-%M-%S" )
     
-    print("Making backup of .config to -alb-")
+    print("Making backup of .config to -trasher-")
     source=home + "/.config/"
     destination=home + "/.config-trasher-" + time
     if not os.path.exists(source):
         os.mkdir(source)
         permissions(destination)    
-    copy_tree(source,destination)
+    copy_tree(source,destination,preserve_symlinks=True)
     permissions(destination)
 
     print("Making backup of .local to -trasher-")
