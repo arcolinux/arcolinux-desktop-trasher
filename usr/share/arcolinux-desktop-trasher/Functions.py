@@ -442,9 +442,10 @@ def make_backups():
     permissions(destination)
 
 def remove_content_folders():
-    print("removing .config and .local")
-    subprocess.Popen(["rm", "-rf", home + "/.config/"], shell=False, stderr=None)
-    subprocess.Popen(["rm", "-rf", home + "/.local/"], shell=False, stderr=None)
+    print("NOT removing .config")
+    #subprocess.Popen(["rm", "-rf", home + "/.config/"], shell=False, stderr=None)
+    print("NOT removing .local")
+    #subprocess.Popen(["rm", "-rf", home + "/.local/share/"], shell=False, stderr=None)
 
 def copy_skel():
     print("copying skel to home dir")
