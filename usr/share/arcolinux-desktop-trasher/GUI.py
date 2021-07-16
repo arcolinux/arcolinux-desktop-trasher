@@ -100,7 +100,7 @@ def GUI(self, Gtk, GdkPixbuf, fn):
     hbox3.pack_start(lblmessage, True, False, 0)
     
     
-    lbl11 = Gtk.Label(label="Use the ArcoLinux Tweak Tool to restore a desktop")
+    lbl11 = Gtk.Label(label="Use the ArcoLinux Tweak Tool to restore a desktop - backups have been created")
     lbl11.set_margin_top(30)
     hbox11.pack_start(lbl11, False, False, 0)
     # ======================================================================
