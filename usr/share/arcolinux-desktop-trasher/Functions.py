@@ -261,11 +261,9 @@ plasma = [
     "kde-gtk-config",
     "ocs-url",
     "packagekit-qt5",
-    "partitionmanager",
     "sddm-kcm",
     "spectacle",
     "systemd-kcm",
-    "yakuake",
     "kde-applications-meta",
     "ksystemlog",
     "kde-system-meta",
@@ -289,7 +287,9 @@ plasma = [
     "dolphin",
     "ktorrent",
     "kdeconnect",
-    "kdenetwork-filesharing",    
+    "kdenetwork-filesharing",
+    "yakuake",
+    "partitionmanager",        
 ]
 qtile = [
     "arcolinux-qtile-git",
