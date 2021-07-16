@@ -305,7 +305,7 @@ ukui = [
     "ukui",
 ]
 xfce = [
-    "xfce4-powermanager",
+    "xfce4-power-manager",
     "xfce4-goodies",
     "xfce4",
     "mugshot",
