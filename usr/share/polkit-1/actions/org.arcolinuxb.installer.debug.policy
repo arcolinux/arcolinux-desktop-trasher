@@ -4,7 +4,7 @@
   <vendor>ArcoLinux</vendor>
   <vendor_url>https://arcolinux.info/</vendor_url>
   <icon_name>package-x-generic</icon_name>
-  <action id="org.arcolinux.pkexec.arcolinuxb-installer-debug">
+  <action id="org.arcolinux.pkexec.arcolinux-desktop-trasher-debug">
     <description>Change your system</description>
     <message>Authentication is required to change your own user data</message>
     <defaults>
