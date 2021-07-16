@@ -249,7 +249,19 @@ openbox = [
 ]
 plasma = [
     "plasma",
+    "kde-applications-meta",
     "kde-system-meta",
+    "kde-accessibility-meta",
+    "kde-dev-scripts",
+    "kde-dev-utils",
+    "kde-education-meta",
+    "kde-games-meta",
+    "kde-graphics-meta",
+    "kde-multimedia-meta",
+    "kde-network-meta",
+    "kde-pim-meta",
+    "kde-sdk-meta",
+    "kde-utilities-meta",  
     "arcolinux-arc-kde",
     "arcolinux-config-plasma-git",
     "arcolinux-conky-collection-plasma-git",
@@ -276,8 +288,8 @@ plasma = [
     "spectacle",
     "systemd-kcm",
     "yakuake",
-    "kde-applications-meta",
     "ksystemlog",
+
 ]
 qtile = [
     "arcolinux-qtile-git",
