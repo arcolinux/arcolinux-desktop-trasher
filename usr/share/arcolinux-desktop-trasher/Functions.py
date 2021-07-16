@@ -1,8 +1,8 @@
 # =================================================================
 # =                  Author: Brad Heffernan & Erik Dubois         =
 # =================================================================
-
 import os
+import sys
 import gi
 import threading  # noqa
 import subprocess
@@ -460,3 +460,7 @@ def copy_skel():
 def shutdown():
     print("shutting down")
     subprocess.call(["sudo", "systemctl", "reboot"], shell=False)
+
+def restart_program():
+    python = sys.executable
+    os.execl(python, python, *sys.argv)

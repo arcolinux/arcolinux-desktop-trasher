@@ -94,7 +94,7 @@ def GUI(self, Gtk, GdkPixbuf, fn):
     #                       REFRESH
     # ======================================================================
     btnRefresh = Gtk.Button(label="Refresh current desktops")
-    btnClose.connect('clicked', self.on_refresh_clicked)
+    btnRefresh.connect('clicked', self.on_refresh_clicked)
 
     hbox12.pack_end(btnRefresh, True, False, 0)
 
