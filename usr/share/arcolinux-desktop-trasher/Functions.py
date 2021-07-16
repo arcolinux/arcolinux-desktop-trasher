@@ -3,6 +3,7 @@
 # =================================================================
 
 import os
+import gi
 import threading  # noqa
 import subprocess
 import shutil
@@ -10,6 +11,9 @@ import datetime
 from pathlib import Path
 from distutils.dir_util import copy_tree
 from distutils.dir_util import _path_created
+
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk, GdkPixbuf  # noqa
 
 base_dir = os.path.dirname(os.path.realpath(__file__))
 proc = subprocess.Popen(["who"], stdout=subprocess.PIPE, shell=True, executable='/bin/bash') # noqa
