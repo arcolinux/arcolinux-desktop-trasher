@@ -248,21 +248,6 @@ openbox = [
     "openbox-arc-git",
 ]
 plasma = [
-    "plasma",
-    "kde-applications-meta",
-    "kde-system-meta",
-    "kde-accessibility-meta",
-    "kde-dev-scripts",
-    "kde-dev-utils",
-    "kde-education-meta",
-    "kde-games-meta",
-    "kde-graphics-meta",
-    "kde-multimedia-meta",
-    "kde-network-meta",
-    "kde-pim-meta",
-    "kde-sdk-meta",
-    "kde-utilities-meta",  
-    "arcolinux-arc-kde",
     "arcolinux-config-plasma-git",
     "arcolinux-conky-collection-plasma-git",
     "arcolinux-plasma-dconf-git",
@@ -288,8 +273,22 @@ plasma = [
     "spectacle",
     "systemd-kcm",
     "yakuake",
+    "kde-applications-meta",
     "ksystemlog",
-
+    "kde-system-meta",
+    "kde-accessibility-meta",
+    "kde-dev-scripts",
+    "kde-dev-utils",
+    "kde-education-meta",
+    "kde-games-meta",
+    "kde-graphics-meta",
+    "kde-multimedia-meta",
+    "kde-network-meta",
+    "kde-pim-meta",
+    "kde-sdk-meta",
+    "kde-utilities-meta",  
+    "arcolinux-arc-kde",
+    "plasma",
 ]
 qtile = [
     "arcolinux-qtile-git",
@@ -390,7 +389,7 @@ def remove_desktop(self,desktop):
         remove_less_critical_commands =[]
     elif desktop == "xfce":
         commands = xfce
-        remove_less_critical_commands =["libxfce4ui",]    
+        remove_less_critical_commands =[]    
     elif desktop == "xmonad":
         commands = xmonad
         remove_less_critical_commands =[]
