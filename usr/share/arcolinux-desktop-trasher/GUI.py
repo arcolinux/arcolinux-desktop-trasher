@@ -21,6 +21,7 @@ def GUI(self, Gtk, GdkPixbuf, fn):
     hbox9 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox10 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox11 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+    hbox12 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
 
     #vbox2 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
 
@@ -88,6 +89,16 @@ def GUI(self, Gtk, GdkPixbuf, fn):
     hbox2.pack_end(btnClose, True, False, 0)
     hbox2.pack_end(btnReboot, True, False, 0)
 
+
+    # ======================================================================
+    #                       REFRESH
+    # ======================================================================
+    btnRefresh = Gtk.Button(label="Refresh current desktops")
+    btnClose.connect('clicked', self.on_refresh_clicked)
+
+    hbox12.pack_end(btnRefresh, True, False, 0)
+
+ 
  
     # ======================================================================
     #                       MESSAGE
@@ -109,6 +120,7 @@ def GUI(self, Gtk, GdkPixbuf, fn):
 
     self.vbox.pack_start(hbox4, False, False, 20)  # LOGO
     self.vbox.pack_start(hbox3, False, False, 20)  # warning text
+    self.vbox.pack_start(hbox12, False, False, 7)  # Buttons
     self.vbox.pack_start(hbox9, False, False, 5)  # Desktops installed
     self.vbox.pack_start(hbox10, True, False, 5)  # Remove installed desktops
     self.vbox.pack_start(hbox7, False, False, 30)  # Remove desktops

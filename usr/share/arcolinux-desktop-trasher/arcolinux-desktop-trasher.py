@@ -24,6 +24,9 @@ class Main(Gtk.Window):
 
     def on_close_clicked(self, widget):
         Gtk.main_quit()
+    
+    def on_refresh_clicked(self, widget):
+        fn.pop_box(self, self.installed_sessions)    
 
     def on_remove_clicked(self, desktop):
         print("removing {}".format(self.desktopr.get_active_text()))
