@@ -890,8 +890,8 @@ def make_backups():
 
 def remove_content_folders():
     print("removing .config and .local")
-    subprocess.Popen(["rm", "-rf", home + "/.config/"], shell=False)
-    subprocess.Popen(["rm", "-rf", home + "/.local/"], shell=False)
+    subprocess.Popen(["rm", "-rf", home + "/.config/"], shell=False, stderr=None)
+    subprocess.Popen(["rm", "-rf", home + "/.local/"], shell=False, stderr=None)
 
 def copy_skel():
     print("copying skel to home dir")
