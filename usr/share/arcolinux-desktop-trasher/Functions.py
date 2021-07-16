@@ -305,9 +305,10 @@ ukui = [
     "ukui",
 ]
 xfce = [
-    "mugshot",
+    "xfce4-powermanager",
     "xfce4-goodies",
     "xfce4",
+    "mugshot",
 ]
 xmonad = [
     "arcolinux-xmonad-polybar-git",
