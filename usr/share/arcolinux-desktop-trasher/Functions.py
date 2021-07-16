@@ -18,7 +18,7 @@ users = proc.stdout.readlines()[0].decode().strip().split(" ")[0]
 
 sudo_username = os.getlogin()
 home = "/home/" + str(sudo_username)
-
+message = "This tool is provided without any garantees - use with care - functionality of other desktops may be compromised - make backups"
 
 # =====================================================
 #               Check if File Exists
@@ -1156,16 +1156,16 @@ def make_backups():
     
     print("Making backup of .config to -alb-")
     source=home + "/.config/"
-    destination=home + "/.config-alb-" + time
+    destination=home + "/.config-trasher-" + time
     if not os.path.exists(source):
         os.mkdir(source)
         permissions(destination)    
     copy_tree(source,destination)
     permissions(destination)
 
-    print("Making backup of .local to -alb-")
+    print("Making backup of .local to -trasher-")
     source=home + "/.local/"
-    destination=home + "/.local-alb-" + time
+    destination=home + "/.local-trasher-" + time
     if not os.path.exists(source):
         os.mkdir(source)
         permissions(source) 

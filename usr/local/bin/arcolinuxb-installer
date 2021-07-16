@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-pkexec /usr/share/arcolinuxb-installer/arcolinuxb-installer.py
+pkexec /usr/share/arcolinux-desktop-trasher/arcolinux-desktop-trasher.py
