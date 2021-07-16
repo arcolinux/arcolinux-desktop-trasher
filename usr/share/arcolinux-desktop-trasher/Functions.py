@@ -400,7 +400,7 @@ def remove_desktop(self,desktop):
         print("------------------------------------------------------------")
         print("removing commands array -Rdd")
         print("------------------------------------------------------------")
-        subprocess.call(["sudo", "pacman", "-Rdd",
+        subprocess.call(["sudo", "pacman", "-Rs",
             commands[i],
             "--noconfirm", "--ask=4"], shell=False)
     
@@ -413,7 +413,7 @@ def remove_desktop(self,desktop):
             print("------------------------------------------------------------")
             print("removing packages less_critical_commands array -Rs")
             print("------------------------------------------------------------")
-            subprocess.call(["sudo", "pacman", "-Rs",
+            subprocess.call(["sudo", "pacman", "-Rdd",
 	            remove_less_critical_commands[i],
 	            "--noconfirm", "--ask=4"], shell=False)
     
