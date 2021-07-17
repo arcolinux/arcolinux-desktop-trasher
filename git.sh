@@ -14,8 +14,10 @@
 ##################################################################################################################
 
 # checking if I have the latest files from github
-echo "Checking for newer files online first"
-git pull
+# echo "Checking for newer files online first"
+# git pull
+
+rm -rf /home/erik/ARCO/ARCOLINUX/arcolinux-desktop-trasher/usr/share/arcolinux-desktop-trasher/__pycache__/
 
 # Below command will backup everything inside the project folder
 git add --all .
