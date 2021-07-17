@@ -347,7 +347,6 @@ def remove_desktop(self,desktop):
             "gnome-online-miners",
             "gnome-epub-thumbnailer",
             ]
-                                   ]
     elif desktop == "cinnamon":
         commands = cinnamon
         remove_critical_commands =[]
