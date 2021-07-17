@@ -188,7 +188,7 @@ deepin = [
     "arcolinux-deepin-dconf-git",
     "arcolinux-deepin-git",
     "deepin-wm",
-    "deepin-mutter"
+    "deepin-mutter",
     "deepin-extra",
     "deepin",
 ]
