@@ -202,7 +202,6 @@ gnome = [
     "arcolinux-gnome-dconf-git",
     "arcolinux-gnome-git",
     "arcolinux-guake-autostart-git",
-    "gnome",
     "gnome-extra",
     "guake",
     "budgie-extras",
