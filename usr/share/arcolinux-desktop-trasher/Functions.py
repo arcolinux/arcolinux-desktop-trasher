@@ -167,8 +167,10 @@ budgie = [
     "arcolinux-budgie-dconf-git",
     "arcolinux-budgie-git",
     "arcolinux-guake-autostart-git",
-    "budgie-desktop",
     "budgie-extras",
+    "budgie-desktop",
+    "gnome-extras"
+    "gnome",
 ]
 cinnamon = [
     "arcolinux-cinnamon-dconf-git",
@@ -185,8 +187,10 @@ cwm = [
 deepin = [
     "arcolinux-deepin-dconf-git",
     "arcolinux-deepin-git",
-    "deepin",
+    "deepin-wm",
+    "deepin-mutter"
     "deepin-extra",
+    "deepin",
 ]
 dwm = [
     "arcolinux-dwm-git",
@@ -204,6 +208,7 @@ gnome = [
     "gnome-extra",
     "guake",
     "budgie-extras",
+    "budgie",
 ]
 hlwm = [
     "arcolinux-herbstluftwm-git",
@@ -328,74 +333,74 @@ dummy = [
 def remove_desktop(self,desktop):
     commands = dummy
     commands.clear()
-    remove_less_critical_commands = dummy
-    remove_less_critical_commands.clear
+    remove_critical_commands = dummy
+    remove_critical_commands.clear
     if desktop == "awesome":
         commands = awesome
-        remove_less_critical_commands =[]
+        remove_critical_commands =[]
     elif desktop == "bspwm":
         commands = bspwm
-        remove_less_critical_commands =[]
+        remove_critical_commands =[]
     elif desktop == "budgie-desktop":
         commands = budgie
-        remove_less_critical_commands =[]
+        remove_critical_commands =[]
     elif desktop == "cinnamon":
         commands = cinnamon
-        remove_less_critical_commands =[]
+        remove_critical_commands =[]
     elif desktop == "cwm":
         commands = cwm
-        remove_less_critical_commands =[]
+        remove_critical_commands =[]
     elif desktop == "deepin":
         commands = deepin
-        remove_less_critical_commands =[]
+        remove_critical_commands =["deepin"]
     elif desktop == "dwm":
         commands = dwm
-        remove_less_critical_commands =[]
+        remove_critical_commands =[]
     elif desktop == "fvwm3":
         commands = fvwm3
-        remove_less_critical_commands =[]
+        remove_critical_commands =[]
     elif desktop == "gnome":
         commands = gnome
-        remove_less_critical_commands =[]
+        remove_critical_commands =["gnome"]
     elif desktop == "herbstluftwm":
         commands = hlwm
-        remove_less_critical_commands =[]
+        remove_critical_commands =[]
     elif desktop == "i3":
         commands = i3
-        remove_less_critical_commands =[]
+        remove_critical_commands =[]
     elif desktop == "icewm":
         commands = icewm
-        remove_less_critical_commands =[]
+        remove_critical_commands =[]
     elif desktop == "jwm":
         commands = jwm
-        remove_less_critical_commands =[]
+        remove_critical_commands =[]
     elif desktop == "lxqt":
         commands = lxqt
-        remove_less_critical_commands =[]
+        remove_critical_commands =[]
     elif desktop == "mate":
         commands = mate
-        remove_less_critical_commands =[]
+        remove_critical_commands =[]
     elif desktop == "openbox":
         commands = openbox
-        remove_less_critical_commands =[]
+        remove_critical_commands =[]
     elif desktop == "plasma":
         commands = plasma
-        remove_less_critical_commands =[]
+        remove_critical_commands =[]
     elif desktop == "qtile":
-        remove_less_critical_commands =[]
+        remove_critical_commands =[]
         commands = qtile
     elif desktop == "spectrwm":
-        remove_less_critical_commands =[]
+        remove_critical_commands =[]
         commands = spectrwm
     elif desktop == "ukui":
         commands = ukui
-        remove_less_critical_commands =[]
+        remove_critical_commands =[]
     elif desktop == "xfce":
         commands = xfce
-        remove_less_critical_commands =[]    
+        remove_critical_commands =[]    
     elif desktop == "xmonad":
         commands = xmonad
-        remove_less_critical_commands =[]
+        remove_critical_commands =[]
     else:
         return
     
@@ -407,17 +412,17 @@ def remove_desktop(self,desktop):
             commands[i],
             "--noconfirm", "--ask=4"], shell=False)
     
-    if not remove_less_critical_commands:
+    if not remove_critical_commands:
         print("============================================================")
-        print("remove_less_critical_commands is empty")
+        print("remove_critical_commands is empty")
         print("============================================================")
     else:
-        for i in range(len(remove_less_critical_commands)):
+        for i in range(len(remove_critical_commands)):
             print("------------------------------------------------------------")
             print("removing packages less_critical_commands array -Rdd")
             print("------------------------------------------------------------")
             subprocess.call(["sudo", "pacman", "-Rdd",
-	            remove_less_critical_commands[i],
+	            remove_critical_commands[i],
 	            "--noconfirm", "--ask=4"], shell=False)
     
 def make_backups():
