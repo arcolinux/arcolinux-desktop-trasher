@@ -204,8 +204,6 @@ gnome = [
     "arcolinux-guake-autostart-git",
     "gnome-extra",
     "guake",
-    "budgie-extras",
-    "budgie",
 ]
 hlwm = [
     "arcolinux-herbstluftwm-git",
@@ -359,7 +357,13 @@ def remove_desktop(self,desktop):
         remove_critical_commands =[]
     elif desktop == "gnome":
         commands = gnome
-        remove_critical_commands =["gnome"]
+        remove_critical_commands =[
+            "gnome","gnome-desktop",
+            "gnome-autoar",
+            "gnome-online-accounts",
+            "gnome-online-miners"
+            "gnome-epub-thumbnailer"
+            ]
     elif desktop == "herbstluftwm":
         commands = hlwm
         remove_critical_commands =[]
