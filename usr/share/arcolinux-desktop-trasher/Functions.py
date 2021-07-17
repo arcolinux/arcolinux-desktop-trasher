@@ -362,8 +362,8 @@ def remove_desktop(self,desktop):
             "gnome-desktop",
             "gnome-autoar",
             "gnome-online-accounts",
-            "gnome-online-miners"
-            "gnome-epub-thumbnailer"
+            "gnome-online-miners",
+            "gnome-epub-thumbnailer",
             ]
     elif desktop == "herbstluftwm":
         commands = hlwm
