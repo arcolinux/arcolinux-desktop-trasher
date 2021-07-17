@@ -18,7 +18,7 @@ class Main(Gtk.Window):
         self.set_default_size(700, 250)
         self.set_icon_from_file(fn.os.path.join(
             fn.base_dir, 'images/arcolinux.png'))
-        self.set_position(Gtk.WindowPosition.CENTER)
+        #self.set_position(Gtk.WindowPosition.CENTER)
 
         GUI.GUI(self, Gtk, GdkPixbuf, fn)
 
