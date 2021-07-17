@@ -231,14 +231,14 @@ lxqt = [
     "arcolinux-lxqt-git",
     "lxqt",
     "lxqt-arc-dark-theme-git",
-    "obconf-qt",
     "pavucontrol-qt",
+    "xscreensaver",
 ]
 mate = [
     "arcolinux-mate-dconf-git",
     "arcolinux-mate-git",
-    "mate",
     "mate-extra",
+    "mate",
     "mate-tweak",
 ]
 openbox = [
@@ -249,12 +249,11 @@ openbox = [
     "obkey-git",
     "obmenu-generator",
     "obmenu3",
-    "openbox",
     "openbox-arc-git",
+    "openbox",
 ]
 plasma = [
     "arcolinux-config-plasma-git",
-    "arcolinux-conky-collection-plasma-git",
     "arcolinux-plasma-dconf-git",
     "arcolinux-plasma-git",
     "arcolinux-plasma-kservices-git",
@@ -262,12 +261,10 @@ plasma = [
     "discover",
     "encfs",
     "gocryptfs",
-    "kate",
     "kde-gtk-config",
     "ocs-url",
     "packagekit-qt5",
     "sddm-kcm",
-    "spectacle",
     "systemd-kcm",
     "kde-applications-meta",
     "ksystemlog",
@@ -294,7 +291,9 @@ plasma = [
     "kdeconnect",
     "kdenetwork-filesharing",
     "yakuake",
-    "partitionmanager",        
+    "partitionmanager",
+    "kate",       
+    "spectacle",
 ]
 qtile = [
     "arcolinux-qtile-git",
@@ -308,6 +307,8 @@ ukui = [
     "arcolinux-ukui-dconf-git",
     "arcolinux-ukui-git",
     "ukui",
+    "mate-extra",
+    "mate"
 ]
 xfce = [
     "xfce4-power-manager",
@@ -319,10 +320,10 @@ xfce = [
 xmonad = [
     "arcolinux-xmonad-polybar-git",
     "haskell-dbus",
-    "xmonad",
     "xmonad-contrib",
     "xmonad-log",
     "xmonad-utils",
+    "xmonad",
 ]
 
 dummy = [
