@@ -339,7 +339,15 @@ def remove_desktop(self,desktop):
         remove_critical_commands =[]
     elif desktop == "budgie-desktop":
         commands = budgie
-        remove_critical_commands =["gnome"]
+        remove_critical_commands =[
+            "gnome",
+            "gnome-desktop",
+            "gnome-autoar",
+            "gnome-online-accounts",
+            "gnome-online-miners",
+            "gnome-epub-thumbnailer",
+            ]
+                                   ]
     elif desktop == "cinnamon":
         commands = cinnamon
         remove_critical_commands =[]
