@@ -169,7 +169,7 @@ budgie = [
     "arcolinux-guake-autostart-git",
     "budgie-extras",
     "budgie-desktop",
-    "gnome-extras"
+    "gnome-extras",
     "gnome",
 ]
 cinnamon = [
