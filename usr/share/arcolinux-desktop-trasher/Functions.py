@@ -342,7 +342,7 @@ def remove_desktop(self,desktop):
         remove_critical_commands =[]
     elif desktop == "budgie-desktop":
         commands = budgie
-        remove_critical_commands =[]
+        remove_critical_commands =["gnome"]
     elif desktop == "cinnamon":
         commands = cinnamon
         remove_critical_commands =[]
