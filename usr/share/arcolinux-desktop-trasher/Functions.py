@@ -358,7 +358,8 @@ def remove_desktop(self,desktop):
     elif desktop == "gnome":
         commands = gnome
         remove_critical_commands =[
-            "gnome","gnome-desktop",
+            "gnome",
+            "gnome-desktop",
             "gnome-autoar",
             "gnome-online-accounts",
             "gnome-online-miners"
