@@ -355,7 +355,11 @@ def remove_desktop(self,desktop):
         remove_critical_commands =[]
     elif desktop == "deepin":
         commands = deepin
-        remove_critical_commands =["deepin"]
+        remove_critical_commands =[
+            "deepin",
+            "deepin-cluttr",
+            "deepin-cogl",
+            ]
     elif desktop == "dwm":
         commands = dwm
         remove_critical_commands =[]
