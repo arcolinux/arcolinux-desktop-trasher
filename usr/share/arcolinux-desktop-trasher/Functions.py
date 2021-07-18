@@ -22,7 +22,7 @@ users = proc.stdout.readlines()[0].decode().strip().split(" ")[0]
 
 sudo_username = os.getlogin()
 home = "/home/" + str(sudo_username)
-message = "This tool is provided without any garantees - use with care - functionality of other desktops may be compromised - make backups"
+message = "This tool is provided without any guarantees - use with care - functionality of other desktops may be compromised - make backups"
 
 # =====================================================
 #               Check if File Exists
