@@ -169,6 +169,7 @@ budgie = [
     "arcolinux-guake-autostart-git",
     "budgie-extras",
     "budgie-desktop",
+    "guake",
 ]
 cinnamon = [
     "arcolinux-cinnamon-dconf-git",
