@@ -454,14 +454,14 @@ def make_backups():
     copy_tree(source,destination,preserve_symlinks=True)
     permissions(destination)
 
-    print("Making backup of .local to -trasher-")
-    source=home + "/.local/"
-    destination=home + "/.local-trasher-" + time
-    if not os.path.exists(source):
-        os.mkdir(source)
-        permissions(source) 
-    copy_tree(source,destination)
-    permissions(destination)
+    #print("Making backup of .local to -trasher-")
+    #source=home + "/.local/"
+    #destination=home + "/.local-trasher-" + time
+    #if not os.path.exists(source):
+    #    os.mkdir(source)
+    #    permissions(source) 
+    #copy_tree(source,destination)
+    #permissions(destination)
 
 def remove_content_folders():
     print("removing .config")
