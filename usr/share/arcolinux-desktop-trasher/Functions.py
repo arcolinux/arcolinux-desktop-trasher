@@ -2,18 +2,18 @@
 # =                  Author: Brad Heffernan & Erik Dubois         =
 # =================================================================
 import os
+import traceback
+from gi.repository import Gtk, Gdk, GdkPixbuf, Pango, GLib
 import sys
 import gi
 import threading  # noqa
 import subprocess
 import shutil
 import datetime
+from subprocess import PIPE, STDOUT
 from pathlib import Path
 from distutils.dir_util import copy_tree
 from distutils.dir_util import _path_created
-
-gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk, GdkPixbuf  # noqa
 
 base_dir = os.path.dirname(os.path.realpath(__file__))
 proc = subprocess.Popen(["who"], stdout=subprocess.PIPE, shell=True, executable='/bin/bash') # noqa
@@ -23,6 +23,25 @@ users = proc.stdout.readlines()[0].decode().strip().split(" ")[0]
 sudo_username = os.getlogin()
 home = "/home/" + str(sudo_username)
 message = "This tool is provided without any guarantees - use with care - functionality of other desktops may be compromised - make backups"
+
+# =====================================================
+#               Create log file
+# =====================================================
+
+log_dir="/var/log/arcolinux/"
+adt_log_dir="/var/log/arcolinux/adt/"
+
+def create_log(self):
+    print('Making log in /var/log/arcolinux')
+    now = datetime.datetime.now()
+    time = now.strftime("%Y-%m-%d-%H-%M-%S" )
+    destination = adt_log_dir + 'adt-log-' + time
+    command = 'sudo pacman -Q > ' + destination
+    subprocess.call(command,
+                    shell=True,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.STDOUT)     
+    GLib.idle_add(show_in_app_notification, self, "Log file created")
 
 # =====================================================
 #               Check if File Exists
@@ -51,6 +70,29 @@ def MessageBox(self, title, message):
 
 
 # =====================================================
+#               NOTIFICATIONS
+# =====================================================
+
+def show_in_app_notification(self, message):
+    if self.timeout_id is not None:
+        GLib.source_remove(self.timeout_id)
+        self.timeout_id = None
+
+    self.notification_label.set_markup("<span foreground=\"white\">" +
+                                       message + "</span>")
+    self.notification_revealer.set_reveal_child(True)
+    self.timeout_id = GLib.timeout_add(3000, timeOut, self)
+    
+def timeOut(self):
+    close_in_app_notification(self)
+
+def close_in_app_notification(self):
+    self.notification_revealer.set_reveal_child(False)
+    GLib.source_remove(self.timeout_id)
+    self.timeout_id = None    
+
+
+# =====================================================
 #               POP_BOX - XSESSIONS
 # =====================================================
 
@@ -75,6 +117,14 @@ def pop_box(self, combo):
             excludes = ['gnome-classic', 'gnome-xorg', 'i3-with-shmlog', 'openbox-kde', 'cinnamon2d', '']
             if not coms[i] in excludes:
                 combo.append_text(coms[i])
+
+def pop_box_all(self, combo):
+    combo.get_model().clear()
+    combo.set_wrap_width(0)
+
+    for i in range(len(desktop)):
+        combo.append_text(desktop[i])
+
 
 # =====================================================
 #               CHECK DESKTOP - XSESSIONS
@@ -156,12 +206,29 @@ desktop = [
 
 awesome = [
     "arcolinux-awesome-git",
+    "arcolinux-rofi-git",
+    "arcolinux-rofi-themes-git",
+    "arcolinux-volumeicon-git",
+    "autorandr",
     "awesome",
+    "lxappearance",
+    "picom",
+    "rofi",
     "vicious",
+    "volumeicon",
 ]
 bspwm = [
     "arcolinux-bspwm-git",
+    "arcolinux-rofi-git",
+    "arcolinux-rofi-themes-git",
+    "arcolinux-volumeicon-git",    
     "bspwm",
+    "picom",
+    "rofi",
+    "sutils-git",
+    "sxhkd",
+    "volumeicon",
+    "xtitle-git",
 ]
 budgie = [
     "arcolinux-budgie-dconf-git",
@@ -178,10 +245,19 @@ cinnamon = [
     "cinnamon-translations",
     "mintlocale",
     "nemo-fileroller",
+    "iso-flag-png",
+    "gnome-screenshot",
+    "gnome-system-monitor",
+    "gnome-terminal",        
 ]
 cwm = [
     "arcolinux-cwm-git",
+    "arcolinux-volumeicon-git",    
     "cwm",
+    "autorandr",         
+    "picom",
+    "sxhkd",
+    "volumeicon",    
 ]
 deepin = [
     "arcolinux-deepin-dconf-git",
@@ -194,9 +270,27 @@ deepin = [
 dwm = [
     "arcolinux-dwm-git",
     "arcolinux-dwm-slstatus-git",
+    "arcolinux-rofi-git",
+    "arcolinux-rofi-themes-git",
+    "arcolinux-volumeicon-git",
+    "gsimplecal",
+    "picom",
+    "rofi",
+    "sxhkd",    
+    "volumeicon",    
 ]
 fvwm3 = [
     "arcolinux-fvwm3-git",
+    "arcolinux-rofi-git",
+    "arcolinux-rofi-themes-git",
+    "arcolinux-volumeicon-git",
+    "autorandr",
+    "gsimplecal",
+    "lxappearance",
+    "picom",
+    "rofi",
+    "sxhkd",
+    "volumeicon",
     "fvwm3-git",
 ]
 gnome = [
@@ -208,44 +302,97 @@ gnome = [
 ]
 hlwm = [
     "arcolinux-herbstluftwm-git",
+    "arcolinux-rofi-git",
+    "arcolinux-rofi-themes-git",
+    "arcolinux-volumeicon-git",    
     "herbstluftwm",
+    "picom",
+    "rofi",
+    "sutils-git",
+    "sxhkd",
+    "volumeicon",
+    "xtitle-git",
 ]
 i3 = [
     "arcolinux-i3wm-git",
+    "arcolinux-rofi-git",
+    "arcolinux-rofi-themes-git",
+    "arcolinux-volumeicon-git",    
+    "autotiling",
     "i3-gaps",
     "i3status",
+    "picom",
+    "rofi",
+    "sxhkd",
+    "volumeicon",
 ]
 icewm = [
     "arcolinux-icewm-git",
+    "arcolinux-rofi-git",
+    "arcolinux-rofi-themes-git",
+    "arcolinux-volumeicon-git",
+    "autorandr",         
     "icewm",
+    "picom",
+    "rofi",
+    "volumeicon",
+    "xdgmenumaker",
  ]
 jwm = [
     "arcolinux-jwm-git",
+    "arcolinux-rofi-git",
+    "arcolinux-rofi-themes-git",
+    "arcolinux-volumeicon-git",
+    "autorandr",        
     "jwm",
+    "picom",
+    "rofi",
+    "sxhkd",
+    "volumeicon",
+    "xdgmenumaker",
 ]
 lxqt = [
     "arcolinux-lxqt-git",
     "lxqt",
     "lxqt-arc-dark-theme-git",
-    "pavucontrol-qt",
     "xscreensaver",
 ]
 mate = [
     "arcolinux-mate-dconf-git",
     "arcolinux-mate-git",
+    "mate-tweak",
     "mate-extra",
     "mate",
-    "mate-tweak",
 ]
 openbox = [
+    "arcolinux-common-git",
+    "arcolinux-docs-git",
+    "arcolinux-geany-git",
+    "arcolinux-nitrogen-git",
     "arcolinux-obmenu-generator-git",
     "arcolinux-openbox-git",
+    "arcolinux-rofi-git",
+    "arcolinux-rofi-themes-git",
+    "arcolinux-tint2-git",
+    "arcolinux-tint2-themes-git",
+    "arcolinux-volumeicon-git",
+    "geany",
+    "gsimplecal",
+    "gtk2-perl",
     "lxappearance-obconf",
+    "lxrandr",
+    "nitrogen",
     "obconf",
     "obkey-git",
     "obmenu-generator",
     "obmenu3",
     "openbox-arc-git",
+    "openbox-themes-pambudi-git",
+    "perl-linux-desktopfiles",
+    "rofi",
+    "tint2",
+    "volumeicon",
+    "xcape",
     "openbox",
 ]
 plasma = [
@@ -290,6 +437,7 @@ plasma = [
     "partitionmanager",
     "kate",       
     "spectacle",
+    "ark",
 ]
 qtile = [
     "arcolinux-qtile-git",
@@ -297,14 +445,26 @@ qtile = [
 ]
 spectrwm = [
     "arcolinux-spectrwm-git",
+    "arcolinux-rofi-git",
+    "arcolinux-rofi-themes-git",
+    "arcolinux-volumeicon-git",
     "spectrwm",
+    "autorandr",        
+    "picom",
+    "rofi",
+    "sutils-git",
+    "sxhkd",
+    "volumeicon",
+    "xtitle-git",
 ]
 ukui = [
     "arcolinux-ukui-dconf-git",
     "arcolinux-ukui-git",
     "ukui",
     "mate-extra",
-    "mate"
+    "mate",
+    "redshift",
+    "gnome-screenshot",
 ]
 xfce = [
     "xfce4-power-manager",
@@ -314,8 +474,12 @@ xfce = [
     "mugshot",
 ]
 xmonad = [
+    "arcolinux-volumeicon-git",
     "arcolinux-xmonad-polybar-git",
     "haskell-dbus",
+    "perl-checkupdates-aur",
+    "perl-www-aur",
+    "volumeicon",
     "xmonad-contrib",
     "xmonad-log",
     "xmonad-utils",
@@ -451,30 +615,54 @@ def make_backups():
     if not os.path.exists(source):
         os.mkdir(source)
         permissions(destination)    
-    copy_tree(source,destination,preserve_symlinks=True)
+    
+    try:
+        copy_tree(source,destination,preserve_symlinks=False)
+    except Exception:
+        print(traceback.format_exc())
+        print("Error occurred in making a backup of ~/.config. Process ended with success.")
+        
     permissions(destination)
 
-    #print("Making backup of .local to -trasher-")
-    #source=home + "/.local/"
-    #destination=home + "/.local-trasher-" + time
-    #if not os.path.exists(source):
-    #    os.mkdir(source)
-    #    permissions(source) 
-    #copy_tree(source,destination)
-    #permissions(destination)
+    print("Making backup of .local to -trasher-")
+    source=home + "/.local/"
+    destination=home + "/.local-trasher-" + time
+    if not os.path.exists(source):
+        os.mkdir(source)
+        permissions(source) 
+    try:
+        copy_tree(source,destination,preserve_symlinks=False)
+    except Exception:
+        print(traceback.format_exc())
+        print("Error occurred in making a copy of ~/.local. Process ended with success.")
+    
+    permissions(destination)
 
 def remove_content_folders():
+    #print("removing .config and .local")
     print("removing .config")
-    subprocess.Popen(["rm", "-rf", home + "/.config/"], shell=False, stderr=None)
-    print("NOT removing .local")
-    #subprocess.Popen(["rm", "-rf", home + "/.local/share/"], shell=False, stderr=None)
+    try:
+        subprocess.Popen(["rm", "-rf", home + "/.config/"], shell=False, stderr=None)
+    except Exception:
+        print(traceback.format_exc())
+        print("Error occurred in removing ~/.config. Process ended with success.")
+    #try:
+    #    subprocess.Popen(["rm", "-rf", home + "/.local/share/"], shell=False, stderr=None)
+    #except Exception:
+    #    print(traceback.format_exc())
+    #    print("Error occurred in removing ~/.local/share/. Process ended with success.")
+
 
 def copy_skel():
     print("copying skel to home dir")
     _path_created.clear()
     source="/etc/skel/"
     destination=home + "/"
-    copy_tree(source,destination)
+    try:
+        copy_tree(source,destination,preserve_symlinks=False)
+    except Exception:
+        print(traceback.format_exc())
+        print("Error occurred in copying files from /etc/skel to your ~. Process ended with success.")
     permissions(destination)
 
 def shutdown():
