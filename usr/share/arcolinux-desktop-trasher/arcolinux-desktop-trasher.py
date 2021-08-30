@@ -42,24 +42,31 @@ class Main(Gtk.Window):
     def on_refresh_clicked(self, desktop):
         fn.restart_program()
 
+    #OPTION 1
     def on_remove_clicked_installed(self, desktop):
         print("removing {}".format(self.installed_sessions.get_active_text()))
         fn.create_log(self)
         fn.make_backups()
         fn.remove_desktop(self,self.installed_sessions.get_active_text())
-        fn.remove_content_folders()
-        fn.copy_skel()
+        if self.donottouch.get_active():
+            pass
+        else:
+            fn.remove_content_folders()
+            fn.copy_skel()
         fn.create_log(self)
         GLib.idle_add(fn.show_in_app_notification, self, "Desktop removed option 1")
 
-
+    #OPTION 2
     def on_remove_clicked(self, desktop):
         print("removing {}".format(self.desktopr.get_active_text()))
         fn.create_log(self)
         fn.make_backups()
         fn.remove_desktop(self,self.desktopr.get_active_text())
-        fn.remove_content_folders()
-        fn.copy_skel()
+        if self.donottouch.get_active():
+            pass
+        else:
+            fn.remove_content_folders()
+            fn.copy_skel()
         fn.create_log(self)
         GLib.idle_add(fn.show_in_app_notification, self, "Desktop removed option 2")
 

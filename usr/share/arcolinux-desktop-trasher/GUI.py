@@ -44,6 +44,7 @@ def GUI(self, Gtk, GdkPixbuf, fn):
     hbox11 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox12 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox13 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+    hbox14 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
 
     #vbox2 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
 
@@ -58,6 +59,13 @@ def GUI(self, Gtk, GdkPixbuf, fn):
     # ======================================================================
     #                          DESKTOPS INSTALLED BOX 9
     # ======================================================================
+
+    self.lbl_donottouch = Gtk.Label(label="Do not remove the current content of ~/.config\nUser will remove any unwanted files and folders manually")
+    self.donottouch = Gtk.Switch()
+    self.donottouch.set_active(True)
+    hbox14.pack_start(self.lbl_donottouch, False, False, 0)
+    hbox14.pack_end(self.donottouch, False, False, 0)
+
 
     lbl9 = Gtk.Label(label="Option 1 : remove the installed desktop \n (/usr/share/xsessions) ")
     lbl9.set_margin_top(30)
@@ -151,6 +159,7 @@ def GUI(self, Gtk, GdkPixbuf, fn):
     self.vbox.pack_start(hbox0, False, False, 20)  # revealer
     self.vbox.pack_start(hbox4, False, False, 20)  # Logo
     self.vbox.pack_start(hbox3, False, False, 20)  # warning text
+    self.vbox.pack_start(hbox14, False, False, 5)  # Procedure
     self.vbox.pack_start(hbox13, False, False, 5)  # Procedure
     self.vbox.pack_start(hbox12, False, False, 7)  # Buttons
     self.vbox.pack_start(hbox9, False, False, 5)  # Desktops installed

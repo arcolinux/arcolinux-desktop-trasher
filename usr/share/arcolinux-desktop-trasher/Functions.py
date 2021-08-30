@@ -184,6 +184,7 @@ desktop = [
     "bspwm",
     "budgie-desktop",
     "cinnamon",
+    "cutefish-xsession",
     "cwm",
     "deepin",
     "dwm",
@@ -231,7 +232,6 @@ bspwm = [
     "xtitle-git",
 ]
 budgie = [
-    "arcolinux-budgie-dconf-git",
     "arcolinux-budgie-git",
     "arcolinux-guake-autostart-git",
     "budgie-extras",
@@ -239,7 +239,6 @@ budgie = [
     "guake",
 ]
 cinnamon = [
-    "arcolinux-cinnamon-dconf-git",
     "arcolinux-cinnamon-git",
     "cinnamon",
     "cinnamon-translations",
@@ -249,6 +248,10 @@ cinnamon = [
     "gnome-screenshot",
     "gnome-system-monitor",
     "gnome-terminal",        
+]
+cutefish = [
+    "arcolinux-cutefish-git",
+    "cutefish",     
 ]
 cwm = [
     "arcolinux-cwm-git",
@@ -260,7 +263,6 @@ cwm = [
     "volumeicon",    
 ]
 deepin = [
-    "arcolinux-deepin-dconf-git",
     "arcolinux-deepin-git",
     "deepin-wm",
     "deepin-mutter",
@@ -294,7 +296,6 @@ fvwm3 = [
     "fvwm3-git",
 ]
 gnome = [
-    "arcolinux-gnome-dconf-git",
     "arcolinux-gnome-git",
     "arcolinux-guake-autostart-git",
     "gnome-extra",
@@ -358,7 +359,6 @@ lxqt = [
     "xscreensaver",
 ]
 mate = [
-    "arcolinux-mate-dconf-git",
     "arcolinux-mate-git",
     "mate-tweak",
     "mate-extra",
@@ -397,7 +397,6 @@ openbox = [
 ]
 plasma = [
     "arcolinux-config-plasma-git",
-    "arcolinux-plasma-dconf-git",
     "arcolinux-plasma-git",
     "arcolinux-plasma-kservices-git",
     "cryfs",
@@ -458,7 +457,6 @@ spectrwm = [
     "xtitle-git",
 ]
 ukui = [
-    "arcolinux-ukui-dconf-git",
     "arcolinux-ukui-git",
     "ukui",
     "mate-extra",
@@ -517,6 +515,9 @@ def remove_desktop(self,desktop):
         remove_critical_commands =[]
     elif desktop == "cwm":
         commands = cwm
+        remove_critical_commands =[]
+    elif desktop == "cutefish-xsession":
+        commands = cutefish
         remove_critical_commands =[]
     elif desktop == "deepin":
         commands = deepin
