@@ -194,6 +194,7 @@ desktop = [
     "i3",
     "icewm",
     "jwm",
+    "leftwm",
     "lxqt",
     "mate",
     "openbox",
@@ -351,6 +352,18 @@ jwm = [
     "sxhkd",
     "volumeicon",
     "xdgmenumaker",
+]
+leftwm = [
+    "arcolinux-leftwm-git",
+    "arcolinux-rofi-git",
+    "arcolinux-rofi-themes-git",
+    "arcolinux-volumeicon-git",
+    "leftwm-theme-git",
+    "leftwm",
+    "picom",
+    "rofi",
+    "sxhkd",
+    "volumeicon",
 ]
 lxqt = [
     "arcolinux-lxqt-git",
@@ -553,6 +566,9 @@ def remove_desktop(self,desktop):
         remove_critical_commands =[]
     elif desktop == "jwm":
         commands = jwm
+        remove_critical_commands =[]
+    elif desktop == "leftwm":
+        commands = leftwm
         remove_critical_commands =[]
     elif desktop == "lxqt":
         commands = lxqt
