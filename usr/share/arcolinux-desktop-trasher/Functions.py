@@ -187,6 +187,7 @@ desktop = [
     "cutefish-xsession",
     "cwm",
     "deepin",
+    "dusk",
     "dwm",
     "fvwm3",
     "gnome",
@@ -269,6 +270,14 @@ deepin = [
     "deepin-mutter",
     "deepin-extra",
     "deepin",
+]
+dusk = [
+    "arcolinux-dusk-git",
+    "arcolinux-dwm-st-git",
+    "arcolinux-volumeicon-git",
+    "picom",
+    "sxhkd",
+    "volumeicon",  
 ]
 dwm = [
     "arcolinux-dwm-git",
@@ -539,6 +548,9 @@ def remove_desktop(self,desktop):
             "deepin-clutter",
             "deepin-cogl",
             ]
+    elif desktop == "dusk":
+        commands = dusk
+        remove_critical_commands =[]
     elif desktop == "dwm":
         commands = dwm
         remove_critical_commands =[]
