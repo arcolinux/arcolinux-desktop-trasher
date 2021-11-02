@@ -35,9 +35,9 @@ class Main(Gtk.Window):
                 os.mkdir(fn.adt_log_dir)
             except Exception as e:
                 print(e)
-        #added 02/11/2021 - remove later - root permissions repaired        
+        #added 02/11/2021 - remove later - root permissions repaired
         if os.path.exists(fn.home + "/.config-adt"):
-            permissions(fn.home + "/.config-adt")
+            fn.permissions(fn.home + "/.config-adt")
 
     def on_close_clicked(self, widget):
         Gtk.main_quit()
