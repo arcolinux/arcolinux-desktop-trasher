@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Arcolinux Desktop Trasher
-GenericName=Arcolinux Desktop Trasher
-X-GNOME-FullName=Arcolinux Desktop Trasher
+GenericName=ArcoLinux Desktop Trasher
+X-GNOME-FullName=ArcoLinux Desktop Trasher
 Comment=Removes all your desktops - Beware!!!
 Exec=/usr/local/bin/arcolinux-desktop-trasher
 Icon=arcolinux-desktop-trasher

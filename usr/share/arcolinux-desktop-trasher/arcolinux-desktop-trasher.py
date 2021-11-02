@@ -13,9 +13,9 @@ import Functions as fn
 class Main(Gtk.Window):
     def __init__(self):
         super(Main, self).__init__(title="ArcoLinux Desktop Trasher")
-        
+
         self.timeout_id = None
-        
+
         self.set_border_width(10)
         self.set_default_size(700, 250)
         self.set_icon_from_file(fn.os.path.join(
@@ -23,22 +23,25 @@ class Main(Gtk.Window):
         #self.set_position(Gtk.WindowPosition.CENTER)
 
         GUI.GUI(self, Gtk, GdkPixbuf, fn)
-        
+
         if not os.path.isdir(fn.log_dir):
             try:
                 os.mkdir(fn.log_dir)
             except Exception as e:
                 print(e)
-        
+
         if not os.path.isdir(fn.adt_log_dir):
             try:
                 os.mkdir(fn.adt_log_dir)
             except Exception as e:
                 print(e)
+        #added 02/11/2021 - remove later - root permissions repaired        
+        if os.path.exists(fn.home + "/.config-adt"):
+            permissions(fn.home + "/.config-adt")
 
     def on_close_clicked(self, widget):
         Gtk.main_quit()
-    
+
     def on_refresh_clicked(self, desktop):
         fn.restart_program()
 
@@ -74,7 +77,7 @@ class Main(Gtk.Window):
         print("Closing down")
         fn.shutdown()
 
-      
+
 if __name__ == "__main__":
     w = Main()
     w.connect("delete-event", Gtk.main_quit)

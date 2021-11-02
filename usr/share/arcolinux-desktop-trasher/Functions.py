@@ -40,7 +40,7 @@ def create_log(self):
     subprocess.call(command,
                     shell=True,
                     stdout=subprocess.PIPE,
-                    stderr=subprocess.STDOUT)     
+                    stderr=subprocess.STDOUT)
     GLib.idle_add(show_in_app_notification, self, "Log file created")
 
 # =====================================================
@@ -68,7 +68,6 @@ def MessageBox(self, title, message):
     md2.run()
     md2.destroy()
 
-
 # =====================================================
 #               NOTIFICATIONS
 # =====================================================
@@ -82,15 +81,14 @@ def show_in_app_notification(self, message):
                                        message + "</span>")
     self.notification_revealer.set_reveal_child(True)
     self.timeout_id = GLib.timeout_add(3000, timeOut, self)
-    
+
 def timeOut(self):
     close_in_app_notification(self)
 
 def close_in_app_notification(self):
     self.notification_revealer.set_reveal_child(False)
     GLib.source_remove(self.timeout_id)
-    self.timeout_id = None    
-
+    self.timeout_id = None
 
 # =====================================================
 #               POP_BOX - XSESSIONS
@@ -103,7 +101,6 @@ def close_in_app_notification(self):
 #             f.close()
 #         return lines
 
-
 def pop_box(self, combo):
     coms = []
     combo.get_model().clear()
@@ -111,7 +108,7 @@ def pop_box(self, combo):
     if os.path.exists("/usr/share/xsessions/"):
         for items in os.listdir("/usr/share/xsessions/"):
             coms.append(items.split(".")[0].lower())
-    
+
         coms.sort()
         for i in range(len(coms)):
             excludes = ['gnome-classic', 'gnome-xorg', 'i3-with-shmlog', 'openbox-kde', 'cinnamon2d', '']
@@ -125,13 +122,12 @@ def pop_box_all(self, combo):
     for i in range(len(desktop)):
         combo.append_text(desktop[i])
 
-
 # =====================================================
 #               CHECK DESKTOP - XSESSIONS
 # =====================================================
 
 # def check_desktop(desktop):
-    
+
 #     if os.path.exists("/usr/share/xsessions/"):
 #         lst = Functions.os.listdir("/usr/share/xsessions/")
 #         for x in lst:
@@ -224,7 +220,7 @@ bspwm = [
     "arcolinux-bspwm-git",
     "arcolinux-rofi-git",
     "arcolinux-rofi-themes-git",
-    "arcolinux-volumeicon-git",    
+    "arcolinux-volumeicon-git",
     "bspwm",
     "picom",
     "rofi",
@@ -249,20 +245,20 @@ cinnamon = [
     "iso-flag-png",
     "gnome-screenshot",
     "gnome-system-monitor",
-    "gnome-terminal",        
+    "gnome-terminal",
 ]
 cutefish = [
     "arcolinux-cutefish-git",
-    "cutefish",     
+    "cutefish",
 ]
 cwm = [
     "arcolinux-cwm-git",
-    "arcolinux-volumeicon-git",    
+    "arcolinux-volumeicon-git",
     "cwm",
-    "autorandr",         
+    "autorandr",
     "picom",
     "sxhkd",
-    "volumeicon",    
+    "volumeicon",
 ]
 deepin = [
     "arcolinux-deepin-git",
@@ -277,7 +273,7 @@ dusk = [
     "arcolinux-volumeicon-git",
     "picom",
     "sxhkd",
-    "volumeicon",  
+    "volumeicon",
 ]
 dwm = [
     "arcolinux-dwm-git",
@@ -288,8 +284,8 @@ dwm = [
     "gsimplecal",
     "picom",
     "rofi",
-    "sxhkd",    
-    "volumeicon",    
+    "sxhkd",
+    "volumeicon",
 ]
 fvwm3 = [
     "arcolinux-fvwm3-git",
@@ -315,7 +311,7 @@ hlwm = [
     "arcolinux-herbstluftwm-git",
     "arcolinux-rofi-git",
     "arcolinux-rofi-themes-git",
-    "arcolinux-volumeicon-git",    
+    "arcolinux-volumeicon-git",
     "herbstluftwm",
     "picom",
     "rofi",
@@ -328,7 +324,7 @@ i3 = [
     "arcolinux-i3wm-git",
     "arcolinux-rofi-git",
     "arcolinux-rofi-themes-git",
-    "arcolinux-volumeicon-git",    
+    "arcolinux-volumeicon-git",
     "autotiling",
     "i3-gaps",
     "i3status",
@@ -342,7 +338,7 @@ icewm = [
     "arcolinux-rofi-git",
     "arcolinux-rofi-themes-git",
     "arcolinux-volumeicon-git",
-    "autorandr",         
+    "autorandr",
     "icewm",
     "picom",
     "rofi",
@@ -354,7 +350,7 @@ jwm = [
     "arcolinux-rofi-git",
     "arcolinux-rofi-themes-git",
     "arcolinux-volumeicon-git",
-    "autorandr",        
+    "autorandr",
     "jwm",
     "picom",
     "rofi",
@@ -443,7 +439,7 @@ plasma = [
     "kde-network-meta",
     "kde-pim-meta",
     "kde-sdk-meta",
-    "kde-utilities-meta",  
+    "kde-utilities-meta",
     "arcolinux-arc-kde",
     "plasma",
     "kate",
@@ -456,7 +452,7 @@ plasma = [
     "kdenetwork-filesharing",
     "yakuake",
     "partitionmanager",
-    "kate",       
+    "kate",
     "spectacle",
     "ark",
 ]
@@ -470,7 +466,7 @@ spectrwm = [
     "arcolinux-rofi-themes-git",
     "arcolinux-volumeicon-git",
     "spectrwm",
-    "autorandr",        
+    "autorandr",
     "picom",
     "rofi",
     "sutils-git",
@@ -605,13 +601,13 @@ def remove_desktop(self,desktop):
         remove_critical_commands =[]
     elif desktop == "xfce":
         commands = xfce
-        remove_critical_commands =[]    
+        remove_critical_commands =[]
     elif desktop == "xmonad":
         commands = xmonad
         remove_critical_commands =[]
     else:
         return
-    
+
     for i in range(len(commands)):
         print("------------------------------------------------------------")
         print("removing commands array -Rs")
@@ -619,7 +615,7 @@ def remove_desktop(self,desktop):
         subprocess.call(["sudo", "pacman", "-Rs",
             commands[i],
             "--noconfirm", "--ask=4"], shell=False)
-    
+
     if not remove_critical_commands:
         print("============================================================")
         print("remove_critical_commands is empty")
@@ -632,27 +628,30 @@ def remove_desktop(self,desktop):
             subprocess.call(["sudo", "pacman", "-Rdd",
 	            remove_critical_commands[i],
 	            "--noconfirm", "--ask=4"], shell=False)
-    
+
 def make_backups():
     print("making backups of .config and .local")
+
     if not os.path.exists(home + "/.config-adt"):
         os.makedirs(home + "/.config-adt")
+    if os.path.exists(home + "/.config-adt"):
+        permissions(home + "/.config-adt")
+
     now = datetime.datetime.now()
     time = now.strftime("%Y-%m-%d-%H-%M-%S" )
-    
+
     print("Making backup of .config to .config-adt")
     source=home + "/.config/"
     destination=home + "/.config-adt/config-adt-" + time
     if not os.path.exists(source):
         os.mkdir(source)
-        permissions(destination)    
-    
+        permissions(source)
     try:
         copy_tree(source,destination,preserve_symlinks=False)
     except Exception:
         print(traceback.format_exc())
         print("Error occurred in making a backup of ~/.config. Process ended with success.")
-        
+
     permissions(destination)
 
     print("Making backup of .local to .config-adt")
@@ -660,13 +659,13 @@ def make_backups():
     destination=home + "/.config-adt/local-adt-" + time
     if not os.path.exists(source):
         os.mkdir(source)
-        permissions(source) 
+        permissions(source)
     try:
         copy_tree(source,destination,preserve_symlinks=False)
     except Exception:
         print(traceback.format_exc())
         print("Error occurred in making a copy of ~/.local. Process ended with success.")
-    
+
     permissions(destination)
 
 def remove_content_folders():
