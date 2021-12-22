@@ -16,7 +16,7 @@ from distutils.dir_util import copy_tree
 from distutils.dir_util import _path_created
 
 base_dir = os.path.dirname(os.path.realpath(__file__))
-proc = subprocess.Popen(["who"], stdout=subprocess.PIPE, shell=True, executable='/bin/bash') # noqa
+proc = subprocess.Popen(["whoami"], stdout=subprocess.PIPE, shell=True, executable='/bin/bash') # noqa
 users = proc.stdout.readlines()[0].decode().strip().split(" ")[0]
 #print(users)
 
@@ -198,6 +198,7 @@ desktop = [
     "plasma",
     "qtile",
     "spectrwm",
+    "wmderland",
     "ukui",
     "xfce",
     "xmonad"
@@ -482,6 +483,10 @@ ukui = [
     "redshift",
     "gnome-screenshot",
 ]
+wmderland = [
+    "arcolinux-wmderland-git",
+    "wmderland-git",
+]
 xfce = [
     "xfce4-power-manager",
     "xfce4-goodies",
@@ -599,6 +604,9 @@ def remove_desktop(self,desktop):
     elif desktop == "ukui":
         commands = ukui
         remove_critical_commands =[]
+    elif desktop == "wmderland":
+        commands = wmderland
+        remove_critical_commands =[]        
     elif desktop == "xfce":
         commands = xfce
         remove_critical_commands =[]
