@@ -476,12 +476,10 @@ spectrwm = [
     "xtitle-git",
 ]
 ukui = [
+    "arcolinux-root-git",
     "arcolinux-ukui-git",
+    "gvfs",
     "ukui",
-    "mate-extra",
-    "mate",
-    "redshift",
-    "gnome-screenshot",
 ]
 wmderland = [
     "arcolinux-wmderland-git",
