@@ -112,7 +112,7 @@ def GUI(self, Gtk, GdkPixbuf, fn):
     # ======================================================================
     btnClose = Gtk.Button(label="Close")
     btnClose.connect('clicked', self.on_close_clicked)
-    btnReboot = Gtk.Button(label="Reboot")
+    btnReboot = Gtk.Button(label="Reboot your computer")
     btnReboot.connect('clicked', self.on_reboot_clicked)
 
     hbox2.pack_end(btnClose, True, False, 0)

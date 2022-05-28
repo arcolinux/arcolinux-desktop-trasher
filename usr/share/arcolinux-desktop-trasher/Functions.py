@@ -185,6 +185,7 @@ desktop = [
     "deepin",
     "dusk",
     "dwm",
+    "enlightenment",
     "fvwm3",
     "gnome",
     "herbstluftwm",
@@ -287,6 +288,9 @@ dwm = [
     "rofi",
     "sxhkd",
     "volumeicon",
+]
+enlightenment = [
+    "enlightenment",
 ]
 fvwm3 = [
     "arcolinux-fvwm3-git",
@@ -552,6 +556,9 @@ def remove_desktop(self,desktop):
         remove_critical_commands =[]
     elif desktop == "dwm":
         commands = dwm
+        remove_critical_commands =[]
+    elif desktop == "enlightenment":
+        commands = enlightenment
         remove_critical_commands =[]
     elif desktop == "fvwm3":
         commands = fvwm3
