@@ -406,7 +406,6 @@ openbox = [
     "lxrandr",
     "nitrogen",
     "obconf",
-    "obkey-git",
     "obmenu-generator",
     "obmenu3",
     "openbox-arc-git",
