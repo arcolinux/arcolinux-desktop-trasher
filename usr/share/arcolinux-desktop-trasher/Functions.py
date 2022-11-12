@@ -196,6 +196,7 @@ desktop = [
     "lxqt",
     "mate",
     "openbox",
+    "pantheon",
     "plasma",
     "qtile",
     "spectrwm",
@@ -417,6 +418,9 @@ openbox = [
     "xcape",
     "openbox",
 ]
+pantheon = [
+    "pantheon",
+]
 plasma = [
     "arcolinux-config-plasma-git",
     "arcolinux-plasma-git",
@@ -596,6 +600,9 @@ def remove_desktop(self,desktop):
     elif desktop == "openbox":
         commands = openbox
         remove_critical_commands =[]
+    elif desktop == "pantheon":
+        commands = pantheon
+        remove_critical_commands =[]
     elif desktop == "plasma":
         commands = plasma
         remove_critical_commands =[]
@@ -610,7 +617,7 @@ def remove_desktop(self,desktop):
         remove_critical_commands =[]
     elif desktop == "wmderland":
         commands = wmderland
-        remove_critical_commands =[]        
+        remove_critical_commands =[]
     elif desktop == "xfce":
         commands = xfce
         remove_critical_commands =[]
