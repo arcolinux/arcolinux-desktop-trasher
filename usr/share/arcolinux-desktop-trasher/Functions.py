@@ -177,6 +177,7 @@ def permissions(dst):
 
 desktop = [
     "awesome",
+    "berry",
     "bspwm",
     "budgie-desktop",
     "cinnamon",
@@ -201,6 +202,7 @@ desktop = [
     "qtile",
     "spectrwm",
     "wmderland",
+    "worm",
     "ukui",
     "xfce",
     "xmonad"
@@ -213,11 +215,16 @@ awesome = [
     "arcolinux-volumeicon-git",
     "autorandr",
     "awesome",
+    "dmenu",
     "lxappearance",
     "picom",
     "rofi",
     "vicious",
     "volumeicon",
+]
+berry = [
+    "arcolinux-berry-git",
+    "berry-dev-git",
 ]
 bspwm = [
     "arcolinux-bspwm-git",
@@ -492,6 +499,10 @@ wmderland = [
     "arcolinux-wmderland-git",
     "wmderland-git",
 ]
+worm = [
+    "arcolinux-worm-git",
+    "worm-dev-git",
+]
 xfce = [
     "xfce4-power-manager",
     "xfce4-goodies",
@@ -524,6 +535,9 @@ def remove_desktop(self,desktop):
     remove_critical_commands.clear
     if desktop == "awesome":
         commands = awesome
+        remove_critical_commands =[]
+    elif desktop == "berry":
+        commands = berry
         remove_critical_commands =[]
     elif desktop == "bspwm":
         commands = bspwm
@@ -617,6 +631,9 @@ def remove_desktop(self,desktop):
         remove_critical_commands =[]
     elif desktop == "wmderland":
         commands = wmderland
+        remove_critical_commands =[]
+    elif desktop == "worm":
+        commands = worm
         remove_critical_commands =[]
     elif desktop == "xfce":
         commands = xfce
