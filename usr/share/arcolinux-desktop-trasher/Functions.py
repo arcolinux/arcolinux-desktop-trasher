@@ -181,6 +181,7 @@ desktop = [
     "bspwm",
     "budgie-desktop",
     "cinnamon",
+    "chadwm",
     "cutefish-xsession",
     "cwm",
     "deepin",
@@ -190,6 +191,7 @@ desktop = [
     "fvwm3",
     "gnome",
     "herbstluftwm",
+    "hypr",
     "i3",
     "icewm",
     "jwm",
@@ -245,6 +247,9 @@ budgie = [
     "budgie-extras",
     "budgie-desktop",
     "guake",
+]
+chadwm = [
+    "arcolinux-chadwm-git",
 ]
 cinnamon = [
     "arcolinux-cinnamon-git",
@@ -332,6 +337,10 @@ hlwm = [
     "sxhkd",
     "volumeicon",
     "xtitle-git",
+]
+hypr = [
+    "arcolinux-hypr-git",
+    "hypr-dev-git",
 ]
 i3 = [
     "arcolinux-i3wm-git",
@@ -552,6 +561,9 @@ def remove_desktop(self,desktop):
             "gnome-online-miners",
             "gnome-epub-thumbnailer",
             ]
+    elif desktop == "chadwm":
+        commands = chadwm
+        remove_critical_commands =[]
     elif desktop == "cinnamon":
         commands = cinnamon
         remove_critical_commands =[]
@@ -592,6 +604,9 @@ def remove_desktop(self,desktop):
             ]
     elif desktop == "herbstluftwm":
         commands = hlwm
+        remove_critical_commands =[]
+    elif desktop == "hypr":
+        commands = hypr
         remove_critical_commands =[]
     elif desktop == "i3":
         commands = i3
