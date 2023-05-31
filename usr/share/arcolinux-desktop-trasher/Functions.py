@@ -348,7 +348,7 @@ i3 = [
     "arcolinux-rofi-themes-git",
     "arcolinux-volumeicon-git",
     "autotiling",
-    "i3-gaps",
+    "i3-wm",
     "i3status",
     "picom",
     "rofi",
