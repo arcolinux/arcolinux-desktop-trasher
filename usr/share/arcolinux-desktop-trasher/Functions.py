@@ -16,9 +16,11 @@ from distutils.dir_util import copy_tree
 from distutils.dir_util import _path_created
 
 base_dir = os.path.dirname(os.path.realpath(__file__))
-proc = subprocess.Popen(["whoami"], stdout=subprocess.PIPE, shell=True, executable='/bin/bash') # noqa
+proc = subprocess.Popen(
+    ["whoami"], stdout=subprocess.PIPE, shell=True, executable="/bin/bash"
+)  # noqa
 users = proc.stdout.readlines()[0].decode().strip().split(" ")[0]
-#print(users)
+# print(users)
 
 sudo_username = os.getlogin()
 home = "/home/" + str(sudo_username)
@@ -28,24 +30,26 @@ message = "This tool is provided without any guarantees - use with care - functi
 #               Create log file
 # =====================================================
 
-log_dir="/var/log/arcolinux/"
-adt_log_dir="/var/log/arcolinux/adt/"
+log_dir = "/var/log/arcolinux/"
+adt_log_dir = "/var/log/arcolinux/adt/"
+
 
 def create_log(self):
-    print('Making log in /var/log/arcolinux')
+    print("Making log in /var/log/arcolinux")
     now = datetime.datetime.now()
-    time = now.strftime("%Y-%m-%d-%H-%M-%S" )
-    destination = adt_log_dir + 'adt-log-' + time
-    command = 'sudo pacman -Q > ' + destination
-    subprocess.call(command,
-                    shell=True,
-                    stdout=subprocess.PIPE,
-                    stderr=subprocess.STDOUT)
+    time = now.strftime("%Y-%m-%d-%H-%M-%S")
+    destination = adt_log_dir + "adt-log-" + time
+    command = "sudo pacman -Q > " + destination
+    subprocess.call(
+        command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT
+    )
     GLib.idle_add(show_in_app_notification, self, "Log file created")
+
 
 # =====================================================
 #               Check if File Exists
 # =====================================================
+
 
 def path_check(path):
     if os.path.isdir(path):
@@ -53,42 +57,51 @@ def path_check(path):
 
     return False
 
+
 # =====================================================
 #               MESSAGEBOX
 # =====================================================
 
 
 def MessageBox(self, title, message):
-    md2 = Gtk.MessageDialog(parent=self,
-                            flags=0,
-                            message_type=Gtk.MessageType.INFO,
-                            buttons=Gtk.ButtonsType.OK,
-                            text=title)
+    md2 = Gtk.MessageDialog(
+        parent=self,
+        flags=0,
+        message_type=Gtk.MessageType.INFO,
+        buttons=Gtk.ButtonsType.OK,
+        text=title,
+    )
     md2.format_secondary_markup(message)
     md2.run()
     md2.destroy()
 
+
 # =====================================================
 #               NOTIFICATIONS
 # =====================================================
+
 
 def show_in_app_notification(self, message):
     if self.timeout_id is not None:
         GLib.source_remove(self.timeout_id)
         self.timeout_id = None
 
-    self.notification_label.set_markup("<span foreground=\"white\">" +
-                                       message + "</span>")
+    self.notification_label.set_markup(
+        '<span foreground="white">' + message + "</span>"
+    )
     self.notification_revealer.set_reveal_child(True)
     self.timeout_id = GLib.timeout_add(3000, timeOut, self)
 
+
 def timeOut(self):
     close_in_app_notification(self)
+
 
 def close_in_app_notification(self):
     self.notification_revealer.set_reveal_child(False)
     GLib.source_remove(self.timeout_id)
     self.timeout_id = None
+
 
 # =====================================================
 #               POP_BOX - XSESSIONS
@@ -101,6 +114,7 @@ def close_in_app_notification(self):
 #             f.close()
 #         return lines
 
+
 def pop_box(self, combo):
     coms = []
     combo.get_model().clear()
@@ -111,9 +125,17 @@ def pop_box(self, combo):
 
         coms.sort()
         for i in range(len(coms)):
-            excludes = ['gnome-classic', 'gnome-xorg', 'i3-with-shmlog', 'openbox-kde', 'cinnamon2d', '']
+            excludes = [
+                "gnome-classic",
+                "gnome-xorg",
+                "i3-with-shmlog",
+                "openbox-kde",
+                "cinnamon2d",
+                "",
+            ]
             if not coms[i] in excludes:
                 combo.append_text(coms[i])
+
 
 def pop_box_all(self, combo):
     combo.get_model().clear()
@@ -121,6 +143,7 @@ def pop_box_all(self, combo):
 
     for i in range(len(desktop)):
         combo.append_text(desktop[i])
+
 
 # =====================================================
 #               CHECK DESKTOP - XSESSIONS
@@ -140,23 +163,27 @@ def pop_box_all(self, combo):
 #               COPY FUNCTION
 # =====================================================
 
+
 def copy_func(src, dst, isdir=False):
     if isdir:
         subprocess.run(["cp", "-Rp", src, dst], shell=False)
     else:
         subprocess.run(["cp", "-p", src, dst], shell=False)
 
+
 # =====================================================
 #               PERMISSION DESTINATION
 # =====================================================
 
+
 def permissions(dst):
     try:
-        groups = subprocess.run(["sh", "-c", "id " +
-                                 sudo_username],
-                                shell=False,
-                                stdout=subprocess.PIPE,
-                                stderr=subprocess.STDOUT)
+        groups = subprocess.run(
+            ["sh", "-c", "id " + sudo_username],
+            shell=False,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+        )
         for x in groups.stdout.decode().split(" "):
             if "gid" in x:
                 g = x.split("(")[1]
@@ -165,11 +192,11 @@ def permissions(dst):
         # name = calls.stdout.decode().split(":")[0].strip()
         # group = calls.stdout.decode().split(":")[4].strip()
 
-        subprocess.call(["chown", "-R",
-                         sudo_username + ":" + group, dst], shell=False)
+        subprocess.call(["chown", "-R", sudo_username + ":" + group, dst], shell=False)
 
     except Exception as e:
         print(e)
+
 
 # =====================================================
 #               CONTENT OF DESKTOPS
@@ -185,6 +212,7 @@ desktop = [
     "cutefish-xsession",
     "cwm",
     "deepin",
+    "dk",
     "dusk",
     "dwm",
     "enlightenment",
@@ -207,7 +235,7 @@ desktop = [
     "worm",
     "ukui",
     "xfce",
-    "xmonad"
+    "xmonad",
 ]
 
 awesome = [
@@ -281,6 +309,10 @@ deepin = [
     "deepin-mutter",
     "deepin-extra",
     "deepin",
+]
+dk = [
+    "arcolinux-dk-git",
+    "dk",
 ]
 dusk = [
     "arcolinux-dusk-git",
@@ -366,7 +398,7 @@ icewm = [
     "rofi",
     "volumeicon",
     "xdgmenumaker",
- ]
+]
 jwm = [
     "arcolinux-jwm-git",
     "arcolinux-rofi-git",
@@ -532,130 +564,131 @@ xmonad = [
     "xmonad",
 ]
 
-dummy = [
-    "trizen"
-]
+dummy = ["trizen"]
 
 
-def remove_desktop(self,desktop):
+def remove_desktop(self, desktop):
     commands = dummy
     commands.clear()
     remove_critical_commands = dummy
     remove_critical_commands.clear
     if desktop == "awesome":
         commands = awesome
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "berry":
         commands = berry
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "bspwm":
         commands = bspwm
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "budgie-desktop":
         commands = budgie
-        remove_critical_commands =[
+        remove_critical_commands = [
             "gnome",
             "gnome-desktop",
             "gnome-autoar",
             "gnome-online-accounts",
             "gnome-online-miners",
             "gnome-epub-thumbnailer",
-            ]
+        ]
     elif desktop == "chadwm":
         commands = chadwm
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "cinnamon":
         commands = cinnamon
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "cwm":
         commands = cwm
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "cutefish-xsession":
         commands = cutefish
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "deepin":
         commands = deepin
-        remove_critical_commands =[
+        remove_critical_commands = [
             "deepin",
             "deepin-clutter",
             "deepin-cogl",
-            ]
+        ]
+    elif desktop == "dk":
+        commands = dk
+        remove_critical_commands = []
     elif desktop == "dusk":
         commands = dusk
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "dwm":
         commands = dwm
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "enlightenment":
         commands = enlightenment
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "fvwm3":
         commands = fvwm3
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "gnome":
         commands = gnome
-        remove_critical_commands =[
+        remove_critical_commands = [
             "gnome",
             "gnome-desktop",
             "gnome-autoar",
             "gnome-online-accounts",
             "gnome-online-miners",
             "gnome-epub-thumbnailer",
-            ]
+        ]
     elif desktop == "herbstluftwm":
         commands = hlwm
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "hypr":
         commands = hypr
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "i3":
         commands = i3
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "icewm":
         commands = icewm
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "jwm":
         commands = jwm
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "leftwm":
         commands = leftwm
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "lxqt":
         commands = lxqt
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "mate":
         commands = mate
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "openbox":
         commands = openbox
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "pantheon":
         commands = pantheon
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "plasma":
         commands = plasma
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "qtile":
-        remove_critical_commands =[]
+        remove_critical_commands = []
         commands = qtile
     elif desktop == "spectrwm":
-        remove_critical_commands =[]
+        remove_critical_commands = []
         commands = spectrwm
     elif desktop == "ukui":
         commands = ukui
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "wmderland":
         commands = wmderland
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "worm":
         commands = worm
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "xfce":
         commands = xfce
-        remove_critical_commands =[]
+        remove_critical_commands = []
     elif desktop == "xmonad":
         commands = xmonad
-        remove_critical_commands =[]
+        remove_critical_commands = []
     else:
         return
 
@@ -663,9 +696,10 @@ def remove_desktop(self,desktop):
         print("------------------------------------------------------------")
         print("removing commands array -Rs")
         print("------------------------------------------------------------")
-        subprocess.call(["sudo", "pacman", "-Rs",
-            commands[i],
-            "--noconfirm", "--ask=4"], shell=False)
+        subprocess.call(
+            ["sudo", "pacman", "-Rs", commands[i], "--noconfirm", "--ask=4"],
+            shell=False,
+        )
 
     if not remove_critical_commands:
         print("============================================================")
@@ -676,9 +710,18 @@ def remove_desktop(self,desktop):
             print("------------------------------------------------------------")
             print("removing packages less_critical_commands array -Rdd")
             print("------------------------------------------------------------")
-            subprocess.call(["sudo", "pacman", "-Rdd",
-	            remove_critical_commands[i],
-	            "--noconfirm", "--ask=4"], shell=False)
+            subprocess.call(
+                [
+                    "sudo",
+                    "pacman",
+                    "-Rdd",
+                    remove_critical_commands[i],
+                    "--noconfirm",
+                    "--ask=4",
+                ],
+                shell=False,
+            )
+
 
 def make_backups():
     print("making backups of .config and .local")
@@ -689,47 +732,52 @@ def make_backups():
         permissions(home + "/.config-adt")
 
     now = datetime.datetime.now()
-    time = now.strftime("%Y-%m-%d-%H-%M-%S" )
+    time = now.strftime("%Y-%m-%d-%H-%M-%S")
 
     print("Making backup of .config to .config-adt")
-    source=home + "/.config/"
-    destination=home + "/.config-adt/config-adt-" + time
+    source = home + "/.config/"
+    destination = home + "/.config-adt/config-adt-" + time
     if not os.path.exists(source):
         os.mkdir(source)
         permissions(source)
     try:
-        copy_tree(source,destination,preserve_symlinks=False)
+        copy_tree(source, destination, preserve_symlinks=False)
     except Exception:
         print(traceback.format_exc())
-        print("Error occurred in making a backup of ~/.config. Process ended with success.")
+        print(
+            "Error occurred in making a backup of ~/.config. Process ended with success."
+        )
 
     permissions(destination)
 
     print("Making backup of .local to .config-adt")
-    source=home + "/.local/"
-    destination=home + "/.config-adt/local-adt-" + time
+    source = home + "/.local/"
+    destination = home + "/.config-adt/local-adt-" + time
     if not os.path.exists(source):
         os.mkdir(source)
         permissions(source)
     try:
-        copy_tree(source,destination,preserve_symlinks=False)
+        copy_tree(source, destination, preserve_symlinks=False)
     except Exception:
         print(traceback.format_exc())
-        print("Error occurred in making a copy of ~/.local. Process ended with success.")
+        print(
+            "Error occurred in making a copy of ~/.local. Process ended with success."
+        )
 
     permissions(destination)
 
+
 def remove_content_folders():
-    #print("removing .config and .local")
+    # print("removing .config and .local")
     print("removing .config")
     try:
         subprocess.Popen(["rm", "-rf", home + "/.config/"], shell=False, stderr=None)
     except Exception:
         print(traceback.format_exc())
         print("Error occurred in removing ~/.config. Process ended with success.")
-    #try:
+    # try:
     #    subprocess.Popen(["rm", "-rf", home + "/.local/share/"], shell=False, stderr=None)
-    #except Exception:
+    # except Exception:
     #    print(traceback.format_exc())
     #    print("Error occurred in removing ~/.local/share/. Process ended with success.")
 
@@ -737,18 +785,22 @@ def remove_content_folders():
 def copy_skel():
     print("copying skel to home dir")
     _path_created.clear()
-    source="/etc/skel/"
-    destination=home + "/"
+    source = "/etc/skel/"
+    destination = home + "/"
     try:
-        copy_tree(source,destination,preserve_symlinks=False)
+        copy_tree(source, destination, preserve_symlinks=False)
     except Exception:
         print(traceback.format_exc())
-        print("Error occurred in copying files from /etc/skel to your ~. Process ended with success.")
+        print(
+            "Error occurred in copying files from /etc/skel to your ~. Process ended with success."
+        )
     permissions(destination)
+
 
 def shutdown():
     print("shutting down")
     subprocess.call(["sudo", "systemctl", "reboot"], shell=False)
+
 
 def restart_program():
     python = sys.executable
