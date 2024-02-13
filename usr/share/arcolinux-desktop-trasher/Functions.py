@@ -226,6 +226,7 @@ desktop = [
     "leftwm",
     "lxqt",
     "mate",
+    "nimdow",
     "openbox",
     "pantheon",
     "plasma",
@@ -435,6 +436,11 @@ mate = [
     "mate-tweak",
     "mate-extra",
     "mate",
+]
+nimdow = [
+    "arcolinux-nimdow-git",
+    "nimdow-bin",
+    "nim",
 ]
 openbox = [
     "arcolinux-common-git",
@@ -658,6 +664,9 @@ def remove_desktop(self, desktop):
         remove_critical_commands = []
     elif desktop == "mate":
         commands = mate
+        remove_critical_commands = []
+    elif desktop == "nimdow":
+        commands = nimdow
         remove_critical_commands = []
     elif desktop == "openbox":
         commands = openbox
