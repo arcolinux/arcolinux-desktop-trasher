@@ -419,7 +419,7 @@ leftwm = [
     "arcolinux-rofi-themes-git",
     "arcolinux-volumeicon-git",
     "leftwm-theme-git",
-    "leftwm-dev-git",
+    "leftwm-git",
     "picom",
     "rofi",
     "sxhkd",
