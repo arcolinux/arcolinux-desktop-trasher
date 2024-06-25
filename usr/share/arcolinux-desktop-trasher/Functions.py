@@ -272,7 +272,6 @@ bspwm = [
     "picom",
     "rofi",
     "sutils-git",
-    "sxhkd",
     "volumeicon",
     "xtitle-git",
 ]
@@ -307,7 +306,6 @@ cwm = [
     "cwm",
     "autorandr",
     "picom",
-    "sxhkd",
     "volumeicon",
 ]
 deepin = [
@@ -326,7 +324,6 @@ dusk = [
     "arcolinux-dwm-st-git",
     "arcolinux-volumeicon-git",
     "picom",
-    "sxhkd",
     "volumeicon",
 ]
 dwm = [
@@ -338,7 +335,6 @@ dwm = [
     "gsimplecal",
     "picom",
     "rofi",
-    "sxhkd",
     "volumeicon",
 ]
 enlightenment = [
@@ -354,7 +350,6 @@ fvwm3 = [
     "lxappearance",
     "picom",
     "rofi",
-    "sxhkd",
     "volumeicon",
     "fvwm3-git",
 ]
@@ -373,7 +368,6 @@ hlwm = [
     "picom",
     "rofi",
     "sutils-git",
-    "sxhkd",
     "volumeicon",
     "xtitle-git",
 ]
@@ -384,6 +378,10 @@ hypr = [
 hyprland = [
     "arcolinux-hyprland-git",
     "hyprland-git",
+    "hyprutils-git",
+    "hyprcursor-git",
+    "hyprlang-git",
+    "hyprwayland-scanner-git",
 ]
 i3 = [
     "arcolinux-i3wm-git",
@@ -395,7 +393,6 @@ i3 = [
     "i3status",
     "picom",
     "rofi",
-    "sxhkd",
     "volumeicon",
 ]
 icewm = [
@@ -419,7 +416,6 @@ jwm = [
     "jwm",
     "picom",
     "rofi",
-    "sxhkd",
     "volumeicon",
     "xdgmenumaker",
 ]
@@ -434,7 +430,6 @@ leftwm = [
     "leftwm",
     "picom",
     "rofi",
-    "sxhkd",
     "volumeicon",
 ]
 lxqt = [
@@ -544,7 +539,6 @@ spectrwm = [
     "picom",
     "rofi",
     "sutils-git",
-    "sxhkd",
     "volumeicon",
     "xtitle-git",
 ]
