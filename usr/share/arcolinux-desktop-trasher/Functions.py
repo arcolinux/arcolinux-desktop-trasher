@@ -12,8 +12,7 @@ import shutil
 import datetime
 from subprocess import PIPE, STDOUT
 from pathlib import Path
-from distutils.dir_util import copy_tree
-from distutils.dir_util import _path_created
+from setuptools._distutils.dir_util import copy_tree
 
 base_dir = os.path.dirname(os.path.realpath(__file__))
 proc = subprocess.Popen(
@@ -813,7 +812,6 @@ def remove_content_folders():
 
 def copy_skel():
     print("copying skel to home dir")
-    _path_created.clear()
     source = "/etc/skel/"
     destination = home + "/"
     try:
