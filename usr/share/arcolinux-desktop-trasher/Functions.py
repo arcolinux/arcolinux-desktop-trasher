@@ -381,6 +381,7 @@ hyprland = [
     "hyprcursor-git",
     "hyprlang-git",
     "hyprwayland-scanner-git",
+    "uwsm",
 ]
 i3 = [
     "arcolinux-i3wm-git",
