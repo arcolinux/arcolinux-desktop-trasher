@@ -231,6 +231,7 @@ desktop = [
     "lxqt",
     "mate",
     "nimdow",
+    "niri",
     "openbox",
     "pantheon",
     "plasma",
@@ -448,6 +449,10 @@ nimdow = [
     "arcolinux-nimdow-git",
     "nimdow-bin",
     "nim",
+]
+niri = [
+    "arcolinux-niri-git",
+    "niri",
 ]
 openbox = [
     "arcolinux-common-git",
@@ -684,6 +689,9 @@ def remove_desktop(self, desktop):
         remove_critical_commands = []
     elif desktop == "nimdow":
         commands = nimdow
+        remove_critical_commands = []
+    elif desktop == "niri":
+        commands = niri
         remove_critical_commands = []
     elif desktop == "openbox":
         commands = openbox
